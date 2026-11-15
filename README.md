@@ -4,7 +4,9 @@ Code, model scripts and result files for the article
 
 > M. U. Mujahid, *Rule-based versus optimal energy management of a photovoltaic–battery home under a Pakistani time-of-use tariff: from converter dynamics to household cost*, submitted to *Applied Energy* (2026).
 
-Archived release (cite this): DOI _to be added after the Zenodo release_.
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24261362.svg)](https://doi.org/10.5281/zenodo.24261362)
+
+Archived release (cite this): M. U. Mujahid, *PV–battery home under a Pakistani time-of-use tariff: converter model and energy management (code and data)*, version 1.0.0, Zenodo, 2026. https://doi.org/10.5281/zenodo.24261362
 
 The study has two layers:
 - **Plant:** a switched Simulink / Simscape Electrical model of a 10 kWp PV array, a boost converter with perturb-and-observe tracking, a 700 V DC link, a 400 V battery stage and a PLL-based grid inverter. The reference step is 1 µs, and the scripts switch it automatically.
