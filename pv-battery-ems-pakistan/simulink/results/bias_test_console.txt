@@ -1,0 +1,7 @@
+Model at 1 us: 11 step parameters changed
+T1 parallel R-C, 50 ms          | PV 2.932 kW = 101.2 % of 2.898 kW | Vpv 364.6 V (1 ms means 356.7..369.5 V) | 189 s
+T2 series 8 ohm 500 uF, 10 ms   | PV 2.801 kW = 96.7 % of 2.898 kW | Vpv 344.8 V (1 ms means 343.0..347.8 V) | 203 s
+T3 series 8 ohm 500 uF, 50 ms   | PV 2.897 kW = 99.9 % of 2.898 kW | Vpv 363.3 V (1 ms means 357.6..368.7 V) | 658 s
+T4 parallel R-C, 10 ms          | PV 1.822 kW = 62.9 % of 2.898 kW | Vpv 218.9 V (1 ms means 153.5..282.2 V) | 109 s
+Model closed without saving; the saved model is unchanged.
+ALL DONE

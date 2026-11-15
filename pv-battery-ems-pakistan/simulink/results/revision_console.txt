@@ -1,0 +1,83 @@
+=== R1: duty diagnostic ===
+duty samples 240001, dt 5e-06 s
+duty changes after 0.1 s: 110 | step sizes: min 0.0030 max 0.0030 | spacing between changes: median 10.00 ms, min 10.000 ms
+changes larger than one step (0.003): 0
+   t (s)    duty     Vpv 1 ms mean (V)   Vdc (V)   Ppv 1 ms mean (kW)
+   0.290   0.4850     368.4             700.2     9.769
+   0.291   0.4850     368.4             700.1     9.769
+   0.292   0.4850     368.3             700.0     9.770
+   0.293   0.4850     368.3             700.1     9.768
+   0.294   0.4850     368.3             700.3     9.765
+   0.295   0.4850     368.4             700.1     9.765
+   0.296   0.4850     368.4             700.2     9.767
+   0.297   0.4850     368.4             700.3     9.767
+   0.298   0.4850     368.4             700.4     9.767
+   0.299   0.4850     368.5             700.4     9.768
+   0.300   0.4880     366.8             700.4     9.815
+   0.301   0.4880     355.0             700.4     9.907
+   0.302   0.4880     347.9             700.4     9.691
+   0.303   0.4880     347.7             700.5     9.503
+   0.304   0.4880     349.8             700.3     9.449
+   0.305   0.4880     351.1             699.9     9.472
+   0.306   0.4880     351.2             699.8     9.502
+   0.307   0.4880     350.9             699.7     9.512
+   0.308   0.4880     350.7             699.6     9.509
+   0.309   0.4880     350.5             699.4     9.504
+   0.310   0.4850     352.4             699.4     9.465
+   0.311   0.4850     364.3             699.4     9.393
+   0.312   0.4850     370.2             699.2     9.548
+   0.313   0.4850     370.7             699.3     9.712
+   0.314   0.4850     369.4             699.6     9.790
+   0.315   0.4850     368.3             699.6     9.798
+   0.316   0.4850     367.9             699.7     9.783
+   0.317   0.4850     367.9             699.9     9.768
+   0.318   0.4850     368.1             699.9     9.762
+   0.319   0.4850     368.2             699.9     9.763
+   0.320   0.4820     368.3             700.1     9.764
+   0.321   0.4820     368.4             700.2     9.763
+   0.322   0.4820     368.5             700.2     9.765
+   0.323   0.4820     368.5             700.3     9.767
+   0.324   0.4820     368.5             700.4     9.768
+   0.325   0.4820     368.5             700.4     9.768
+   0.326   0.4820     368.5             700.4     9.769
+   0.327   0.4820     368.5             700.5     9.768
+   0.328   0.4820     368.6             700.6     9.766
+   0.329   0.4820     368.6             700.5     9.768
+   0.330   0.4790     368.6             700.5     9.769
+=== R2: PLL scaling and X/R = 2 ===
+R2 SCR 20 X/R 7 PLL x0.50 | THD phase a 17.23 % | neg-seq 2nd 14.59 % | d-ripple 150 Hz 1.97 A | Vdc dev ss 2.7 V | Vpcc 1.025 pu | 55 s
+R2 SCR 20 X/R 7 PLL x0.25 | THD phase a 17.12 % | neg-seq 2nd 14.62 % | d-ripple 150 Hz 1.96 A | Vdc dev ss 2.7 V | Vpcc 1.025 pu | 54 s
+R2 SCR  5 X/R 7 PLL x0.50 | THD phase a 14.05 % | neg-seq 2nd 13.30 % | d-ripple 150 Hz 0.93 A | Vdc dev ss 2.6 V | Vpcc 1.088 pu | 56 s
+R2 SCR  5 X/R 7 PLL x0.25 | THD phase a 15.31 % | neg-seq 2nd 13.22 % | d-ripple 150 Hz 0.93 A | Vdc dev ss 2.7 V | Vpcc 1.089 pu | 61 s
+R2 SCR  2 X/R 7 PLL x0.50 | THD phase a 9.85 % | neg-seq 2nd 9.49 % | d-ripple 150 Hz 0.83 A | Vdc dev ss 14.1 V | Vpcc 1.056 pu | 58 s
+R2 SCR  2 X/R 7 PLL x0.25 | THD phase a 10.41 % | neg-seq 2nd 9.29 % | d-ripple 150 Hz 0.85 A | Vdc dev ss 19.4 V | Vpcc 1.068 pu | 60 s
+R2 SCR  5 X/R 2 PLL x1.00 | THD phase a 14.08 % | neg-seq 2nd 11.32 % | d-ripple 150 Hz 0.65 A | Vdc dev ss 2.8 V | Vpcc 1.134 pu | 63 s
+R2 SCR  3 X/R 2 PLL x1.00 | THD phase a 10.42 % | neg-seq 2nd 7.83 % | d-ripple 150 Hz 0.37 A | Vdc dev ss 2.7 V | Vpcc 1.184 pu | 65 s
+R2 SCR  2 X/R 2 PLL x1.00 | THD phase a 6.26 % | neg-seq 2nd 4.08 % | d-ripple 150 Hz 0.15 A | Vdc dev ss 2.1 V | Vpcc 1.236 pu | 64 s
+=== R3: decoupling and gain variants ===
+R3 SCR 20 | as built               | THD phase a  17.12 % | neg-seq 2nd 14.52 % | d-ripple  150 Hz 1.95 A | Vdc dev ss    2.5 V | Vpcc 1.025 pu | 63 s
+R3 SCR 20 | wL matched             | THD phase a  16.48 % | neg-seq 2nd 13.98 % | d-ripple  150 Hz 1.91 A | Vdc dev ss    2.8 V | Vpcc 1.025 pu | 63 s
+R3 SCR 20 | wL matched, P/I x0.5   | THD phase a  18.18 % | neg-seq 2nd 15.95 % | d-ripple  150 Hz 2.08 A | Vdc dev ss    3.5 V | Vpcc 1.024 pu | 66 s
+R3 SCR 20 | as built wL, P/I x0.5  | THD phase a  19.90 % | neg-seq 2nd 17.71 % | d-ripple  150 Hz 2.25 A | Vdc dev ss    3.4 V | Vpcc 1.025 pu | 64 s
+R3 SCR 20 | wL matched, P/I x2     | THD phase a   9.31 % | neg-seq 2nd  7.50 % | d-ripple  150 Hz 1.08 A | Vdc dev ss    1.7 V | Vpcc 1.025 pu | 63 s
+R3 SCR 10 | as built               | THD phase a  19.46 % | neg-seq 2nd 16.79 % | d-ripple  150 Hz 1.69 A | Vdc dev ss    3.1 V | Vpcc 1.047 pu | 63 s
+R3 SCR 10 | wL matched             | THD phase a  19.12 % | neg-seq 2nd 15.96 % | d-ripple  150 Hz 1.53 A | Vdc dev ss    3.0 V | Vpcc 1.048 pu | 62 s
+R3 SCR 10 | wL matched, P/I x0.5   | THD phase a  23.42 % | neg-seq 2nd 20.46 % | d-ripple  150 Hz 1.81 A | Vdc dev ss    6.3 V | Vpcc 1.049 pu | 63 s
+R3 SCR 10 | as built wL, P/I x0.5  | THD phase a  25.41 % | neg-seq 2nd 23.72 % | d-ripple  150 Hz 1.91 A | Vdc dev ss    6.0 V | Vpcc 1.051 pu | 64 s
+R3 SCR 10 | wL matched, P/I x2     | THD phase a  12.23 % | neg-seq 2nd  9.99 % | d-ripple  150 Hz 1.14 A | Vdc dev ss    2.1 V | Vpcc 1.049 pu | 62 s
+R3 SCR  5 | as built               | THD phase a  14.78 % | neg-seq 2nd 13.11 % | d-ripple  150 Hz 0.86 A | Vdc dev ss    1.9 V | Vpcc 1.090 pu | 64 s
+R3 SCR  5 | wL matched             | THD phase a  14.56 % | neg-seq 2nd 10.70 % | d-ripple  150 Hz 0.67 A | Vdc dev ss    3.2 V | Vpcc 1.095 pu | 66 s
+R3 SCR  5 | wL matched, P/I x0.5   | THD phase a  18.26 % | neg-seq 2nd 14.83 % | d-ripple  150 Hz 0.82 A | Vdc dev ss    5.7 V | Vpcc 1.087 pu | 65 s
+R3 SCR  5 | as built wL, P/I x0.5  | THD phase a  19.72 % | neg-seq 2nd 17.91 % | d-ripple  150 Hz 1.08 A | Vdc dev ss    4.6 V | Vpcc 1.098 pu | 63 s
+R3 SCR  5 | wL matched, P/I x2     | THD phase a   9.01 % | neg-seq 2nd  7.32 % | d-ripple  150 Hz 0.70 A | Vdc dev ss    2.5 V | Vpcc 1.083 pu | 63 s
+R3 SCR  3 | as built               | THD phase a  11.78 % | neg-seq 2nd 10.77 % | d-ripple  150 Hz 0.84 A | Vdc dev ss    2.5 V | Vpcc 1.083 pu | 65 s
+R3 SCR  3 | wL matched             | THD phase a  10.99 % | neg-seq 2nd  9.18 % | d-ripple  150 Hz 0.89 A | Vdc dev ss   16.9 V | Vpcc 1.084 pu | 64 s
+R3 SCR  3 | wL matched, P/I x0.5   | THD phase a   7.77 % | neg-seq 2nd  2.64 % | d-ripple   20 Hz 4.46 A | Vdc dev ss  188.5 V | Vpcc 1.280 pu | 53 s
+R3 SCR  3 | as built wL, P/I x0.5  | THD phase a  14.02 % | neg-seq 2nd 12.34 % | d-ripple  150 Hz 0.92 A | Vdc dev ss   13.2 V | Vpcc 1.092 pu | 65 s
+R3 SCR  3 | wL matched, P/I x2     | THD phase a   7.46 % | neg-seq 2nd  6.50 % | d-ripple  150 Hz 0.71 A | Vdc dev ss    5.7 V | Vpcc 1.071 pu | 60 s
+R3 SCR  2 | as built               | THD phase a   9.68 % | neg-seq 2nd  9.45 % | d-ripple  150 Hz 0.84 A | Vdc dev ss   12.4 V | Vpcc 1.053 pu | 56 s
+R3 SCR  2 | wL matched             | THD phase a   7.32 % | neg-seq 2nd  6.71 % | d-ripple   20 Hz 1.13 A | Vdc dev ss   40.5 V | Vpcc 1.071 pu | 51 s
+R3 SCR  2 | wL matched, P/I x0.5   | THD phase a 105.38 % | neg-seq 2nd  0.40 % | d-ripple  100 Hz 10.03 A | Vdc dev ss 1164.3 V | Vpcc 2.939 pu | 27 s
+R3 SCR  2 | as built wL, P/I x0.5  | THD phase a  11.67 % | neg-seq 2nd 11.12 % | d-ripple  150 Hz 1.30 A | Vdc dev ss   38.8 V | Vpcc 1.012 pu | 49 s
+R3 SCR  2 | wL matched, P/I x2     | THD phase a   6.12 % | neg-seq 2nd  5.46 % | d-ripple  150 Hz 0.72 A | Vdc dev ss   39.1 V | Vpcc 1.047 pu | 51 s
+ALL DONE

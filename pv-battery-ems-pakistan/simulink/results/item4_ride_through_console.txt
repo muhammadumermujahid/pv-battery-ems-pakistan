@@ -1,0 +1,14 @@
+Item 4 - balanced voltage dips at the grid connection point (Three-Phase Fault block, no ground; SCR = 100 source impedance;
+1000 W/m2 uniform, idle battery, fault from 1.0 s). Three-Phase Source: 400 V LL; Rg = 0.0226 ohm, Xg = 0.158 ohm.
+
+--- WITHOUT DC-link override ---
+0.5 pu 0.15 s (Rf 0.1002): dip 0.505 | Ia pk pre 21.6, during 23.8 (1.10x), after 24.4 (1.13x) | Vdc max 849.6 V at 153 ms | Pgrid within +-10 % 30 ms | Vdc +-5 V 706 ms | PLL 0.27 Hz
+0.5 pu 0.50 s (Rf 0.1002): dip 0.504 | Ia during 23.8 (1.10x), after 27.4 (1.26x) | Vdc max 1058.5 V at 503 ms | Pgrid 91 ms | Vdc not within +-5 V in 0.8 s | PLL 0.27 Hz
+0.2 pu 0.15 s (Rf 0.0336): dip 0.202 | Ia during 23.3 (1.08x), after 25.7 (1.19x) | Vdc max 879.4 V at 145 ms | Pgrid 45 ms | Vdc +-5 V 627 ms | PLL 0.29 Hz
+0.2 pu 0.50 s (Rf 0.0336): dip 0.202 | Ia during 23.3 (1.08x), after 29.3 (1.35x) | Vdc max 1096.6 V at 501 ms | Pgrid 105 ms | Vdc not within +-5 V in 0.8 s | PLL 0.29 Hz
+
+--- WITH DC-link override (mppt_dclink_override.m, Vhi = 735 V, kv = 0.01/V) ---
+0.5 pu 0.15 s: dip 0.505 | Ia during 23.7 (1.09x), after 22.3 (1.03x) | Vdc max 743.0 V at 13 ms | Pgrid pre 9.43, dip 5.16 kW | PV during dip 5.53 kW | Pgrid +-10 % 9 ms | Vdc +-5 V 235 ms | PLL 0.27 Hz
+0.5 pu 0.50 s: dip 0.504 | Ia during 23.7 (1.09x), after 21.7 (1.00x) | Vdc max 743.0 V at 13 ms | Pgrid dip 5.02 kW | PV 5.36 kW | Pgrid 11 ms | Vdc 284 ms | PLL 0.27 Hz
+0.2 pu 0.15 s: dip 0.202 | Ia during 23.3 (1.08x), after 22.7 (1.05x) | Vdc max 747.7 V at 10 ms | Pgrid dip 2.01 kW | PV 2.33 kW | Pgrid 9 ms | Vdc 186 ms | PLL 0.29 Hz
+0.2 pu 0.50 s: dip 0.202 | Ia during 23.3 (1.08x), after 22.2 (1.03x) | Vdc max 747.7 V at 10 ms | Pgrid dip 1.99 kW | PV 2.32 kW | Pgrid 10 ms | Vdc 203 ms | PLL 0.29 Hz

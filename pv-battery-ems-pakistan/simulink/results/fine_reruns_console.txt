@@ -1,0 +1,129 @@
+Model at 1e-06 s: 11 step parameters found (11 literal), FixedStep 1e-06, tracker window 10000 calls (10 ms)
+P1: Time 0.4 After 5000 | P2: Time 0.8 After -10000
+=== S1: Table V (1000 -> 600 W/m2 at 0.5 s) ===
+0.3-0.5 s | PV 9.782 | DC-link 9.525 | AC 9.476 kW | boost 97.38 | inverter 99.49 | PV-to-AC 96.88 % | Vdc 699.98 V | I1 19.34 A pk | THD(2-50) 0.74 % | THD to 20 kHz 5.68 % | 5 kHz 0.014 % | h5 0.45, h7 0.38, h11 0.25
+0.9-1.1 s | PV 5.892 | DC-link 5.645 | AC 5.614 kW | boost 95.80 | inverter 99.46 | PV-to-AC 95.28 % | Vdc 700.00 V | I1 11.45 A pk | THD(2-50) 1.25 % | THD to 20 kHz 9.57 % | 5 kHz 0.023 % | h7 0.81, h5 0.71, h13 0.33
+figure data written: fine_fig5_run.txt, fine_fig6a_iabc.txt
+start-up Vdc max 720.3 V | after step min 682.5 V | back within +/-5 V after 62 ms | id 19.32 -> 11.46 A | iq 0.00 A | PLL dev 0.006 / 0.002 Hz | 312 s
+=== S2: battery stage (300 W/m2, original P1/P2) and midday (1000 W/m2, -5 kW at 0.5 s) ===
+FF 1 Idle      | Ibat 0.00 A | Vdc 700.0 (700-700) V | PV 2.89 kW | export 2.63 kW | THD 2.59 % | I1 5.36 A pk | TRD 0.68 %
+FF 1 Discharge | Ibat 12.50 A | Vdc 700.1 (700-700) V | PV 2.90 kW | export 7.60 kW | THD 0.80 % | I1 15.50 A pk | TRD 0.60 %
+FF 1 Charge    | Ibat -12.49 A | Vdc 700.1 (700-700) V | PV 2.90 kW | export -2.37 kW | THD 2.61 % | I1 4.86 A pk | TRD 0.62 %
+   step at 0.4 s: peak -0.7 V at 0 ms, back within +/-5 V after 0 ms
+   step at 0.8 s: peak +2.3 V at 1 ms, back within +/-5 V after 0 ms
+   start-up Vdc min 678.5 V (0-40 ms) | 202 s
+   discharge ripple 3.90 A peak to peak | figure data written: fine_battery.txt
+FF 1 midday | export 9.48 -> 4.48 kW | PV 9.79 / 9.78 kW | Ibat -12.49 A | peak Vdc -1.2 V, back in 0 ms | THD 0.74 / 1.32 % (I1 19.34 / 9.16 A, TRD 0.71 / 0.59 %) | 261 s
+FF 0 Idle      | Ibat 0.00 A | Vdc 700.0 (700-700) V | PV 2.89 kW | export 2.63 kW | THD 2.59 % | I1 5.36 A pk | TRD 0.68 %
+FF 0 Discharge | Ibat 12.50 A | Vdc 700.0 (699-701) V | PV 2.89 kW | export 7.60 kW | THD 0.81 % | I1 15.50 A pk | TRD 0.62 %
+FF 0 Charge    | Ibat -12.48 A | Vdc 699.9 (698-701) V | PV 2.91 kW | export -2.40 kW | THD 2.05 % | I1 5.57 A pk | TRD 0.56 %
+   step at 0.4 s: peak +22.4 V at 17 ms, back within +/-5 V after 68 ms
+   step at 0.8 s: peak -46.4 V at 16 ms, back within +/-5 V after 83 ms
+   start-up Vdc min 678.5 V (0-40 ms) | 202 s
+FF 0 midday | export 9.48 -> 4.48 kW | PV 9.79 / 9.78 kW | Ibat -12.49 A | peak Vdc -23.1 V, back in 68 ms | THD 0.74 / 1.33 % (I1 19.34 / 9.15 A, TRD 0.71 / 0.60 %) | 260 s
+=== S3: harmonic currents against irradiance (idle, 1.0 s, window 0.5-1.0 s) ===
+G    5 | I1 0.042 A pk | h2 0.022 h5 0.071 h7 0.077 h11 0.025 h13 0.032 A (3-phase mean) | THD 432.86 % | 69 s
+G  100 | I1 1.341 A pk | h2 0.015 h5 0.073 h7 0.080 h11 0.029 h13 0.034 A (3-phase mean) | THD 9.22 % | 128 s
+G  300 | I1 5.379 A pk | h2 0.018 h5 0.074 h7 0.076 h11 0.020 h13 0.029 A (3-phase mean) | THD 2.61 % | 204 s
+G 1000 | I1 19.321 A pk | h2 0.012 h5 0.072 h7 0.072 h11 0.032 h13 0.034 A (3-phase mean) | THD 0.74 % | 261 s
+=== S4: weak grid, midday run, X/R 7 ===
+SCR    0 | max|dVdc| 0.68 / 1.18 V | THD 0.74 / 1.32 % (h7 0.86, h5 0.67, h13 0.33) | Vpcc 1.000 pu | 218 s
+SCR  100 | max|dVdc| 0.76 / 1.25 V | THD 2.64 / 5.45 % (h5 4.15, h7 2.87, h11 1.33) | Vpcc 1.002 pu | 184 s
+SCR   20 | max|dVdc| 2.53 / 3.29 V | THD 15.73 / 34.22 % (h2 28.18, h4 12.63, h5 12.00) | Vpcc 1.022 pu | 182 s
+SCR   10 | max|dVdc| 2.60 / 2.66 V | THD 19.48 / 40.52 % (h2 34.10, h5 20.36, h7 4.66) | Vpcc 1.051 pu | 180 s
+SCR    5 | max|dVdc| 9.58 / 5.91 V | THD 14.26 / 31.88 % (h2 25.99, h5 15.03, h4 6.84) | Vpcc 1.098 pu | 183 s
+SCR    3 | max|dVdc| 27.64 / 23.27 V | THD 11.87 / 27.11 % (h2 22.45, h5 11.51, h4 7.49) | Vpcc 1.123 pu | 185 s
+SCR    2 | max|dVdc| 40.63 / 41.41 V | THD 9.24 / 23.38 % (h2 20.26, h5 8.50, h4 6.50) | Vpcc 1.136 pu | 176 s
+=== S5: weak grid, gain sets (idle, 600 -> 1000 W/m2 at 0.25 s, window 0.5-0.6 s) ===
+SCR  0 original    Kp  10.0 | THD 0.74 % (h5 0.45, h7 0.37, h11 0.24) | neg-seq 2nd 0.03 % | Vdc dev ss 0.7 V | 107 s
+SCR 20 original    Kp  10.0 | THD 15.68 % (h2 12.49, h4 6.20, h5 5.86) | neg-seq 2nd 12.69 % | Vdc dev ss 2.2 V | 102 s
+SCR 20 scaled      Kp  15.6 | THD 11.36 % (h2 8.62, h4 4.85, h5 4.52) | neg-seq 2nd 8.93 % | Vdc dev ss 1.7 V | 104 s
+SCR 20 scaled x1.5 Kp  23.4 | THD 7.88 % (h2 5.78, h4 3.45, h5 3.30) | neg-seq 2nd 5.78 % | Vdc dev ss 1.2 V | 104 s
+SCR 10 original    Kp  10.0 | THD 20.26 % (h2 17.03, h5 10.22, h7 2.35) | neg-seq 2nd 16.64 % | Vdc dev ss 2.8 V | 120 s
+SCR 10 scaled      Kp  21.2 | THD 10.53 % (h2 8.31, h5 5.82, h7 1.29) | neg-seq 2nd 8.48 % | Vdc dev ss 1.8 V | 151 s
+SCR 10 scaled x1.5 Kp  31.8 | THD 7.48 % (h2 5.44, h5 4.25, h4 1.20) | neg-seq 2nd 5.60 % | Vdc dev ss 1.3 V | 114 s
+SCR  5 original    Kp  10.0 | THD 13.25 % (h2 10.44, h5 6.18, h4 3.36) | neg-seq 2nd 11.30 % | Vdc dev ss 3.9 V | 183 s
+SCR  5 scaled      Kp  32.4 | THD 5.53 % (h2 3.92, h5 2.29, h8 1.46) | neg-seq 2nd 3.99 % | Vdc dev ss 1.7 V | 175 s
+SCR  5 scaled x1.5 Kp  48.6 | THD 4.44 % (h2 2.54, h5 1.78, h8 1.25) | neg-seq 2nd 2.86 % | Vdc dev ss 1.2 V | 179 s
+SCR  3 original    Kp  10.0 | THD 12.70 % (h2 10.82, h5 5.09, h4 3.30) | neg-seq 2nd 10.84 % | Vdc dev ss 5.6 V | 180 s
+SCR  3 scaled      Kp  47.3 | THD 4.28 % (h2 3.19, h5 1.46, h8 1.15) | neg-seq 2nd 3.08 % | Vdc dev ss 1.2 V | 171 s
+SCR  3 scaled x1.5 Kp  71.0 | THD 3.62 % (h2 2.51, h8 0.88, h5 0.82) | neg-seq 2nd 2.21 % | Vdc dev ss 1.2 V | 181 s
+SCR  2 original    Kp  10.0 | THD 10.42 % (h2 9.53, h5 2.96, h4 2.27) | neg-seq 2nd 9.00 % | Vdc dev ss 22.6 V | 179 s
+SCR  2 scaled      Kp  66.0 | THD 3.38 % (h2 2.23, h4 1.81, h5 0.61) | neg-seq 2nd 2.22 % | Vdc dev ss 38.4 V | 176 s
+SCR  2 scaled x1.5 Kp  99.0 | THD 2.89 % (h2 1.80, h4 1.72, h10 0.48) | neg-seq 2nd 1.90 % | Vdc dev ss 37.6 V | 174 s
+=== S6: weak-grid variants ===
+SCR 20 X/R 7 PLL x0.50 | THD 15.65 % | neg-seq 2nd 12.71 % | Vdc dev ss 2.2 V | Vpcc 1.025 pu | 174 s
+SCR 20 X/R 7 PLL x0.25 | THD 15.62 % | neg-seq 2nd 12.60 % | Vdc dev ss 2.2 V | Vpcc 1.025 pu | 163 s
+SCR  5 X/R 7 PLL x0.50 | THD 13.44 % | neg-seq 2nd 11.71 % | Vdc dev ss 5.2 V | Vpcc 1.098 pu | 167 s
+SCR  5 X/R 7 PLL x0.25 | THD 13.90 % | neg-seq 2nd 12.48 % | Vdc dev ss 3.2 V | Vpcc 1.095 pu | 168 s
+SCR  2 X/R 7 PLL x0.50 | THD 9.62 % | neg-seq 2nd 8.31 % | Vdc dev ss 24.6 V | Vpcc 1.072 pu | 183 s
+SCR  2 X/R 7 PLL x0.25 | THD 10.39 % | neg-seq 2nd 9.15 % | Vdc dev ss 28.6 V | Vpcc 1.079 pu | 186 s
+SCR  5 X/R 2 PLL x1.00 | THD 16.01 % | neg-seq 2nd 11.55 % | Vdc dev ss 2.5 V | Vpcc 1.141 pu | 171 s
+SCR  3 X/R 2 PLL x1.00 | THD 11.15 % | neg-seq 2nd 7.98 % | Vdc dev ss 2.4 V | Vpcc 1.195 pu | 181 s
+SCR  2 X/R 2 PLL x1.00 | THD 7.34 % | neg-seq 2nd 4.34 % | Vdc dev ss 2.5 V | Vpcc 1.234 pu | 177 s
+SCR 20 wL matched         | THD 15.05 % | neg-seq 2nd 12.24 % | Vdc dev ss 2.3 V | Vpcc 1.025 pu | I1 19.14 A | 168 s
+SCR 20 wL matched, x0.5   | THD 19.60 % | neg-seq 2nd 15.73 % | Vdc dev ss 3.0 V | Vpcc 1.026 pu | I1 19.33 A | 165 s
+SCR 20 as built wL, x0.5  | THD 20.18 % | neg-seq 2nd 17.04 % | Vdc dev ss 3.3 V | Vpcc 1.026 pu | I1 19.34 A | 164 s
+SCR 20 wL matched, x2     | THD 9.07 % | neg-seq 2nd 6.67 % | Vdc dev ss 1.5 V | Vpcc 1.025 pu | I1 19.23 A | 158 s
+SCR 10 wL matched         | THD 17.82 % | neg-seq 2nd 14.69 % | Vdc dev ss 2.6 V | Vpcc 1.056 pu | I1 19.26 A | 157 s
+SCR 10 wL matched, x0.5   | THD 23.94 % | neg-seq 2nd 19.34 % | Vdc dev ss 3.3 V | Vpcc 1.056 pu | I1 19.18 A | 171 s
+SCR 10 as built wL, x0.5  | THD 27.34 % | neg-seq 2nd 22.79 % | Vdc dev ss 3.5 V | Vpcc 1.055 pu | I1 19.28 A | 153 s
+SCR 10 wL matched, x2     | THD 11.54 % | neg-seq 2nd 9.16 % | Vdc dev ss 1.9 V | Vpcc 1.056 pu | I1 19.16 A | 158 s
+SCR  5 wL matched         | THD 13.52 % | neg-seq 2nd 10.51 % | Vdc dev ss 4.1 V | Vpcc 1.093 pu | I1 19.40 A | 148 s
+SCR  5 wL matched, x0.5   | THD 18.41 % | neg-seq 2nd 15.08 % | Vdc dev ss 20.2 V | Vpcc 1.099 pu | I1 18.74 A | 155 s
+SCR  5 as built wL, x0.5  | THD 21.40 % | neg-seq 2nd 17.54 % | Vdc dev ss 6.9 V | Vpcc 1.097 pu | I1 19.20 A | 149 s
+SCR  5 wL matched, x2     | THD 7.41 % | neg-seq 2nd 6.29 % | Vdc dev ss 2.3 V | Vpcc 1.099 pu | I1 19.30 A | 153 s
+SCR  3 wL matched         | THD 9.73 % | neg-seq 2nd 8.17 % | Vdc dev ss 14.5 V | Vpcc 1.105 pu | I1 19.85 A | 153 s
+SCR  3 wL matched, x0.5   | THD 42.91 % | neg-seq 2nd 13.07 % | Vdc dev ss 156.1 V | Vpcc 1.178 pu | I1 8.39 A | 140 s
+SCR  3 as built wL, x0.5  | THD 16.78 % | neg-seq 2nd 13.94 % | Vdc dev ss 6.6 V | Vpcc 1.108 pu | I1 19.50 A | 162 s
+SCR  3 wL matched, x2     | THD 7.27 % | neg-seq 2nd 5.67 % | Vdc dev ss 5.2 V | Vpcc 1.105 pu | I1 19.74 A | 161 s
+SCR  2 wL matched         | THD 7.41 % | neg-seq 2nd 6.36 % | Vdc dev ss 40.2 V | Vpcc 1.111 pu | I1 19.16 A | 164 s
+SCR  2 wL matched, x0.5   | THD 67.06 % | neg-seq 2nd 7.19 % | Vdc dev ss 1118.3 V | Vpcc 2.913 pu | I1 24.71 A | 87 s
+SCR  2 as built wL, x0.5  | THD 13.23 % | neg-seq 2nd 12.17 % | Vdc dev ss 21.7 V | Vpcc 1.075 pu | I1 20.33 A | 157 s
+SCR  2 wL matched, x2     | THD 5.55 % | neg-seq 2nd 4.56 % | Vdc dev ss 37.6 V | Vpcc 1.096 pu | I1 20.19 A | 150 s
+=== S7: tracker steady states (series 8 ohm, 1.0 s, window 0.5-1.0 s) ===
+G  300 | PV 2.897 kW = 100.0 % of available 2.898 kW | 217 s
+G  400 | PV 3.880 kW = 99.3 % of available 3.907 kW | 222 s
+G  500 | PV 4.880 kW = 99.3 % of available 4.913 kW | 269 s
+G  600 | PV 5.884 kW = 99.5 % of available 5.914 kW | 260 s
+G  700 | PV 6.866 kW = 99.4 % of available 6.908 kW | 252 s
+G  800 | PV 7.856 kW = 99.5 % of available 7.895 kW | 285 s
+G  900 | PV 8.821 kW = 99.4 % of available 8.872 kW | 274 s
+G 1000 | PV 9.776 kW = 99.3 % of available 9.841 kW | 276 s
+=== S8: 34-point loss map (constant irradiance, battery step at 0.1 s, mean over 0.4-0.6 s) ===
+E  1/34 G    5 Pbat -5.0 | Ppv 0.005 Pbat -4.995 Pgrid -5.043 loss 0.053 kW | Vdc 700.0 (699.7..700.4) | 45 s
+E  2/34 G    5 Pbat -2.5 | Ppv 0.005 Pbat -2.497 Pgrid -2.523 loss 0.032 kW | Vdc 700.0 (699.8..700.2) | 48 s
+E  3/34 G    5 Pbat +0.0 | Ppv 0.005 Pbat 0.000 Pgrid -0.019 loss 0.025 kW | Vdc 700.0 (699.9..700.1) | 48 s
+E  4/34 G    5 Pbat +2.5 | Ppv 0.005 Pbat 2.500 Pgrid 2.473 loss 0.032 kW | Vdc 700.0 (699.8..700.2) | 47 s
+E  5/34 G    5 Pbat +5.0 | Ppv 0.005 Pbat 5.000 Pgrid 4.953 loss 0.052 kW | Vdc 700.0 (699.7..700.3) | 49 s
+E  6/34 G   50 Pbat -5.0 | Ppv 0.358 Pbat -4.996 Pgrid -4.847 loss 0.209 kW | Vdc 700.0 (699.7..700.3) | 50 s
+E  7/34 G   50 Pbat -2.5 | Ppv 0.358 Pbat -2.497 Pgrid -2.328 loss 0.189 kW | Vdc 700.0 (699.8..700.2) | 51 s
+E  8/34 G   50 Pbat +0.0 | Ppv 0.358 Pbat 0.000 Pgrid 0.175 loss 0.183 kW | Vdc 700.0 (699.9..700.2) | 52 s
+E  9/34 G   50 Pbat +2.5 | Ppv 0.358 Pbat 2.500 Pgrid 2.668 loss 0.190 kW | Vdc 700.0 (699.8..700.2) | 52 s
+E 10/34 G   50 Pbat +5.0 | Ppv 0.358 Pbat 5.000 Pgrid 5.149 loss 0.209 kW | Vdc 700.0 (699.7..700.3) | 50 s
+E 11/34 G  150 Pbat -5.0 | Ppv 1.359 Pbat -4.996 Pgrid -3.919 loss 0.282 kW | Vdc 700.0 (699.6..700.4) | 84 s
+E 12/34 G  150 Pbat -2.5 | Ppv 1.332 Pbat -2.498 Pgrid -1.428 loss 0.263 kW | Vdc 700.0 (699.7..700.4) | 88 s
+E 13/34 G  150 Pbat +0.0 | Ppv 1.359 Pbat 0.000 Pgrid 1.102 loss 0.258 kW | Vdc 700.0 (699.8..700.2) | 78 s
+E 14/34 G  150 Pbat +2.5 | Ppv 1.359 Pbat 2.499 Pgrid 3.592 loss 0.266 kW | Vdc 700.1 (699.7..700.4) | 75 s
+E 15/34 G  150 Pbat +5.0 | Ppv 1.345 Pbat 5.000 Pgrid 6.056 loss 0.289 kW | Vdc 700.0 (699.6..700.4) | 55 s
+E 16/34 G  300 Pbat -5.0 | Ppv 2.896 Pbat -4.996 Pgrid -2.382 loss 0.282 kW | Vdc 700.0 (699.6..700.3) | 93 s
+E 17/34 G  300 Pbat -2.5 | Ppv 2.900 Pbat -2.497 Pgrid 0.137 loss 0.266 kW | Vdc 700.0 (699.7..700.3) | 129 s
+E 18/34 G  300 Pbat +0.0 | Ppv 2.887 Pbat 0.001 Pgrid 2.625 loss 0.264 kW | Vdc 700.0 (699.7..700.3) | 87 s
+E 19/34 G  300 Pbat +2.5 | Ppv 2.832 Pbat 2.499 Pgrid 5.055 loss 0.276 kW | Vdc 700.1 (699.6..700.5) | 76 s
+E 20/34 G  300 Pbat +5.0 | Ppv 2.879 Pbat 5.000 Pgrid 7.580 loss 0.300 kW | Vdc 700.0 (699.6..700.5) | 88 s
+E 21/34 G  500 Pbat -5.0 | Ppv 4.890 Pbat -4.995 Pgrid -0.390 loss 0.286 kW | Vdc 700.0 (699.6..700.5) | 103 s
+E 22/34 G  500 Pbat -2.5 | Ppv 4.876 Pbat -2.497 Pgrid 2.107 loss 0.271 kW | Vdc 700.0 (699.5..700.3) | 101 s
+E 23/34 G  500 Pbat +0.0 | Ppv 4.887 Pbat 0.000 Pgrid 4.615 loss 0.272 kW | Vdc 700.0 (699.6..700.4) | 125 s
+E 24/34 G  500 Pbat +2.5 | Ppv 4.875 Pbat 2.499 Pgrid 7.086 loss 0.287 kW | Vdc 700.0 (699.5..700.5) | 163 s
+E 25/34 G  700 Pbat -5.0 | Ppv 6.874 Pbat -4.996 Pgrid 1.588 loss 0.290 kW | Vdc 700.0 (699.5..700.5) | 112 s
+E 26/34 G  700 Pbat -2.5 | Ppv 6.874 Pbat -2.497 Pgrid 4.097 loss 0.280 kW | Vdc 700.0 (699.5..700.4) | 135 s
+E 27/34 G  700 Pbat +0.0 | Ppv 6.856 Pbat 0.001 Pgrid 6.572 loss 0.285 kW | Vdc 700.0 (699.5..700.5) | 108 s
+E 28/34 G  700 Pbat +2.5 | Ppv 6.873 Pbat 2.499 Pgrid 9.071 loss 0.301 kW | Vdc 700.0 (699.5..700.5) | 108 s
+E 29/34 G  850 Pbat -5.0 | Ppv 8.343 Pbat -4.995 Pgrid 3.053 loss 0.295 kW | Vdc 700.0 (699.5..700.5) | 110 s
+E 30/34 G  850 Pbat -2.5 | Ppv 8.339 Pbat -2.497 Pgrid 5.554 loss 0.288 kW | Vdc 700.0 (699.4..700.5) | 109 s
+E 31/34 G  850 Pbat +0.0 | Ppv 8.338 Pbat 0.001 Pgrid 8.045 loss 0.294 kW | Vdc 700.0 (699.4..700.4) | 110 s
+E 32/34 G 1000 Pbat -5.0 | Ppv 9.781 Pbat -4.995 Pgrid 4.483 loss 0.303 kW | Vdc 700.0 (699.3..700.6) | 110 s
+E 33/34 G 1000 Pbat -2.5 | Ppv 9.777 Pbat -2.497 Pgrid 6.982 loss 0.298 kW | Vdc 700.0 (699.3..700.5) | 111 s
+E 34/34 G 1000 Pbat +0.0 | Ppv 9.777 Pbat 0.001 Pgrid 9.473 loss 0.305 kW | Vdc 700.0 (699.4..700.5) | 110 s
+Model closed without saving; the saved model is unchanged.
+ALL DONE

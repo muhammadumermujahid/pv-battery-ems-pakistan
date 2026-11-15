@@ -1,0 +1,22 @@
+Headline rerun with the corrected 10 ms tracker (P1: Time 0.4 After 5000; P2: Time 0.8 After -10000)
+=== Table II ===
+window 0.3-0.5 s | PV 9.727 kW | AC 9.411 kW | PV-to-AC 96.74 % | Vdc mean 699.95 V | I1 19.23 A pk (13.60 rms) | THD(2-50) 1.80 %
+window 0.9-1.1 s | PV 5.874 kW | AC 5.579 kW | PV-to-AC 94.98 % | Vdc mean 700.02 V | I1 11.38 A pk (8.05 rms) | THD(2-50) 3.13 %
+start-up: Vdc max 720.3 V | after step: Vdc min 682.8 V; back within +/-5 V 62 ms after the step
+id 19.17 -> 11.38 A, iq -0.01 A; PLL deviation 0.009 Hz (0-0.1 s), 0.002 Hz after
+window 0.3-0.5 | DC-link 9.467 kW | boost 97.33 % | THD to 20 kHz 6.05 % | 5 kHz 0.007 %
+window 0.9-1.1 | DC-link 5.624 kW | boost 95.74 % | THD to 20 kHz 10.12 % | 5 kHz 0.022 %
+=== Table IV (feed-forward on) ===
+Idle | Ibat -0.01 A | Vdc 699.8 (699-700) V | PV 2.77 kW | export 2.50 kW | THD 7.53 %
+Discharge | 12.50 A | 700.0 (699-701) | 2.82 | 7.51 | 2.65 %
+Charge | -12.50 A | 700.1 (700-701) | 2.88 | -2.41 | 7.42 %
+step 0.4 s: peak deviation -1.0 V; step 0.8 s: -1.8 V at 9 ms; start-up Vdc min 678.6 V; ripple 4.17 A pp
+=== Table IV (feed-forward off) ===
+step 0.4 s: +23.4 V at 18 ms, back within +/-5 V after 67 ms; step 0.8 s: -45.9 V at 15 ms, 86 ms
+=== Midday (1000 W/m2, -5 kW at 0.5 s) ===
+idle: Vdc 700.0 (699-701), PV 9.74, export 9.42; charge: 700.0 (699-701), PV 9.76, export 4.44
+THD Hann idle 0.94 / charge 1.99 %; rectangular 1.80 / 4.08 %; peak Vdc deviation -1.4 V
+=== 7th harmonic (A pk, phase mean) at G = 0/100/300/1000 W/m2 ===
+h7 0.308 / 0.299 / 0.294 / 0.278 ; I1 0.09 / 1.25 / 5.15 / 19.28
+=== 300 W/m2 THD diagnostic ===
+tracker 10 ms: 7.42 %; 20 ms/dD 0.001: 8.32 %; frozen duty: 7.86 % (h7 5.7-6.0 %)

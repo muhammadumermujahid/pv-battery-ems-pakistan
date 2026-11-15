@@ -1,0 +1,9 @@
+Ammeter port 1 ->  |  grid_inv_test_battery/ipv_ws  |  grid_inv_test_battery/P=VxI  |  grid_inv_test_battery/MPPT Function
+Ammeter port LConn1 ->  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/BD_B
+Ammeter port RConn1 ->  |  grid_inv_test_battery/Inductor
+Voltmeter port 1 ->  |  grid_inv_test_battery/P=VxI  |  grid_inv_test_battery/MPPT Function  |  grid_inv_test_battery/vpv_ws
+Voltmeter port LConn1 ->  |  grid_inv_test_battery/Ammeter  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/BD_B
+Voltmeter port LConn2 ->  |  (negative rail: IGBT, Cin, V_dc, V_bat, Battery, HB, Cdc, Vdc_meas, Bridge, PV array, BD_A)
+Cin port LConn1 ->  |  grid_inv_test_battery/Ammeter  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/BD_B
+Cin port RConn1 ->  |  (negative rail)
+MPPT Function inputs: 1 <- Voltmeter, 2 <- Ammeter, 3 <- Vdc_meas

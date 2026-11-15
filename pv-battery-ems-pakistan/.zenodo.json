@@ -1,0 +1,11 @@
+{
+  "title": "PV-battery home under a Pakistani time-of-use tariff: converter model and energy management (code and data)",
+  "upload_type": "software",
+  "description": "Simulink plant scripts, Python energy-management code, input data and all result files for the article 'Rule-based versus optimal energy management of a photovoltaic-battery home under a Pakistani time-of-use tariff: from converter dynamics to household cost'. Code: MIT. Data and results produced in this work: CC BY 4.0. Third-party inputs (PVGIS-ERA5, NASA POWER) remain under their providers' terms.",
+  "creators": [
+    {"name": "Mujahid, Muhammad Umer", "affiliation": "Independent Researcher, Islamabad, Pakistan"}
+  ],
+  "license": "MIT",
+  "keywords": ["home energy management", "time-of-use tariff", "rule-based control", "MILP", "photovoltaic", "battery storage", "grid-following inverter", "Pakistan"],
+  "version": "1.0.0"
+}

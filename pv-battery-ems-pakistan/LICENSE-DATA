@@ -1,0 +1,11 @@
+Data, results and figures in this repository that were produced in this work
+(the *.json and *.csv result files, the loss maps, the MATLAB console outputs in
+simulink/results/, the figure data and the figures) are licensed under the
+Creative Commons Attribution 4.0 International licence (CC BY 4.0):
+https://creativecommons.org/licenses/by/4.0/
+
+Copyright (c) 2026 Muhammad Umer Mujahid
+
+Third-party input data in ems/data/ (PVGIS-ERA5 from the European Commission
+Joint Research Centre and the Copernicus Climate Change Service; NASA POWER) are
+not covered by this licence and remain under their providers' terms.

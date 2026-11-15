@@ -1,0 +1,77 @@
+Model at 1 us: 11 step parameters changed; tracker window 10000 calls
+Saturation2 as built: Upper 0.5, Lower -0.5 | P1 5000 at 0.4 s, P2 -10000 at 0.8 s
+=== D: as built (Saturation2 +/-0.5), 300 W/m2 battery test, feed-forward on ===
+as built  FF 1 Idle      | Ibat 0.00 A (ripple 3.81 A p-p) | Vdc 699.99 (699.62..700.26) V | PV 2.89 | export 2.63 kW | THD 2.59 % | TRD 0.68 % | duty 0.572, at a limit 99.5 % of samples | PI 362.5..428.2 V
+as built  FF 1 Discharge | Ibat 12.50 A (ripple 3.90 A p-p) | Vdc 700.06 (699.56..700.49) V | PV 2.90 | export 7.60 kW | THD 0.80 % | TRD 0.60 % | duty 0.568, at a limit 99.3 % of samples | PI 362.3..428.4 V
+             settle to +/-1.25 A of +12.5 A: 0.4 ms after the step
+as built  FF 1 Charge    | Ibat -12.49 A (ripple 3.78 A p-p) | Vdc 700.06 (699.77..700.38) V | PV 2.90 | export -2.37 kW | THD 2.61 % | TRD 0.62 % | duty 0.577, at a limit 98.8 % of samples | PI 362.4..425.7 V
+             settle to +/-1.25 A of -12.5 A: 6.7 ms after the step
+   step at 0.4 s: peak -0.7 V at 0 ms, back within +/-5 V after 0 ms
+   step at 0.8 s: peak +2.3 V at 1 ms, back within +/-5 V after 0 ms
+   start-up: Vdc min 678.5 V at 8.3 ms | |Ibat| max 21.0 A in the first 50 ms | duty at a limit 99.1 % in 0-50 ms | Saturation2 output 0.500..0.500
+   172 s
+Saturation2 set to 100..1000 V for all following runs
+=== C: corrected, 300 W/m2 battery test, feed-forward 1 ===
+corrected FF 1 Idle      | Ibat 0.02 A (ripple 3.46 A p-p) | Vdc 700.02 (699.74..700.31) V | PV 2.89 | export 2.63 kW | THD 2.61 % | TRD 0.69 % | duty 0.591, at a limit 0.0 % of samples | PI -42.2..15.9 V
+corrected FF 1 Discharge | Ibat 12.52 A (ripple 3.47 A p-p) | Vdc 699.96 (699.51..700.39) V | PV 2.88 | export 7.58 kW | THD 0.77 % | TRD 0.58 % | duty 0.589, at a limit 0.0 % of samples | PI -40.7..17.7 V
+             settle to +/-1.25 A of +12.5 A: 1.2 ms after the step
+corrected FF 1 Charge    | Ibat -12.49 A (ripple 3.45 A p-p) | Vdc 700.06 (699.82..700.23) V | PV 2.90 | export -2.38 kW | THD 2.65 % | TRD 0.63 % | duty 0.591, at a limit 0.0 % of samples | PI -42.4..15.4 V
+             settle to +/-1.25 A of -12.5 A: 5.4 ms after the step
+   step at 0.4 s: peak -1.4 V at 2 ms, back within +/-5 V after 0 ms
+   step at 0.8 s: peak +2.0 V at 1 ms, back within +/-5 V after 0 ms
+   start-up: Vdc min 690.0 V at 17.9 ms | |Ibat| max 3.0 A in the first 50 ms | duty at a limit 0.0 % in 0-50 ms | Saturation2 output 689.976..701.982
+   figure data written: fine_battery_fixed.txt
+   205 s
+=== C: corrected, midday 1000 W/m2, -5 kW at 0.5 s, feed-forward 1 ===
+   export 9.47 -> 4.49 kW | PV 9.77 / 9.79 kW | Ibat -12.49 A | peak Vdc -1.1 V at 6 ms, back in 0 ms | max|dVdc| 0.61 / 1.07 V | Vdc mean 699.98 / 700.00 V
+   THD 0.73 / 1.37 % (I1 19.35 / 9.17 A, TRD 0.70 / 0.62 %) | settle 0.9 ms | duty at a limit 0.0 % | 264 s
+=== C: corrected, 300 W/m2 battery test, feed-forward 0 ===
+corrected FF 0 Idle      | Ibat 0.02 A (ripple 3.46 A p-p) | Vdc 700.02 (699.74..700.31) V | PV 2.89 | export 2.63 kW | THD 2.61 % | TRD 0.69 % | duty 0.591, at a limit 0.0 % of samples | PI -42.2..15.9 V
+corrected FF 0 Discharge | Ibat 12.52 A (ripple 3.48 A p-p) | Vdc 700.01 (699.47..701.20) V | PV 2.90 | export 7.61 kW | THD 0.75 % | TRD 0.57 % | duty 0.589, at a limit 0.0 % of samples | PI -41.2..17.7 V
+             settle to +/-1.25 A of +12.5 A: 1.2 ms after the step
+corrected FF 0 Charge    | Ibat -12.49 A (ripple 3.59 A p-p) | Vdc 699.87 (697.91..700.43) V | PV 2.90 | export -2.41 kW | THD 2.08 % | TRD 0.57 % | duty 0.592, at a limit 0.0 % of samples | PI -45.6..15.7 V
+             settle to +/-1.25 A of -12.5 A: 6.0 ms after the step
+   step at 0.4 s: peak +22.7 V at 17 ms, back within +/-5 V after 68 ms
+   step at 0.8 s: peak -46.3 V at 16 ms, back within +/-5 V after 82 ms
+   start-up: Vdc min 690.0 V at 17.9 ms | |Ibat| max 3.0 A in the first 50 ms | duty at a limit 0.0 % in 0-50 ms | Saturation2 output 653.738..722.714
+   201 s
+=== C: corrected, midday 1000 W/m2, -5 kW at 0.5 s, feed-forward 0 ===
+   export 9.47 -> 4.48 kW | PV 9.77 / 9.78 kW | Ibat -12.49 A | peak Vdc -23.5 V at 16 ms, back in 66 ms | max|dVdc| 0.61 / 23.46 V | Vdc mean 699.98 / 700.01 V
+   THD 0.73 / 1.35 % (I1 19.35 / 9.16 A, TRD 0.70 / 0.60 %) | settle 0.9 ms | duty at a limit 0.0 % | 264 s
+=== M: corrected, 34-point loss map (constant irradiance, battery step at 0.1 s, mean over 0.4-0.6 s) ===
+E  1/34 G    5 Pbat -5.0 | Ppv 0.005 Pbat -4.994 Pgrid -5.041 loss 0.052 kW | Vdc 700.0 (699.8..700.2) | 46 s
+E  2/34 G    5 Pbat -2.5 | Ppv 0.005 Pbat -2.494 Pgrid -2.520 loss 0.032 kW | Vdc 700.0 (699.8..700.2) | 46 s
+E  3/34 G    5 Pbat +0.0 | Ppv 0.005 Pbat 0.007 Pgrid -0.013 loss 0.025 kW | Vdc 700.0 (699.9..700.1) | 46 s
+E  4/34 G    5 Pbat +2.5 | Ppv 0.005 Pbat 2.507 Pgrid 2.481 loss 0.032 kW | Vdc 700.0 (699.9..700.1) | 58 s
+E  5/34 G    5 Pbat +5.0 | Ppv 0.005 Pbat 5.007 Pgrid 4.960 loss 0.052 kW | Vdc 700.0 (699.8..700.2) | 46 s
+E  6/34 G   50 Pbat -5.0 | Ppv 0.358 Pbat -4.994 Pgrid -4.845 loss 0.209 kW | Vdc 700.0 (699.8..700.2) | 50 s
+E  7/34 G   50 Pbat -2.5 | Ppv 0.358 Pbat -2.494 Pgrid -2.325 loss 0.189 kW | Vdc 700.0 (699.9..700.2) | 49 s
+E  8/34 G   50 Pbat +0.0 | Ppv 0.358 Pbat 0.007 Pgrid 0.182 loss 0.183 kW | Vdc 700.0 (699.9..700.1) | 49 s
+E  9/34 G   50 Pbat +2.5 | Ppv 0.358 Pbat 2.507 Pgrid 2.675 loss 0.190 kW | Vdc 700.0 (699.8..700.2) | 50 s
+E 10/34 G   50 Pbat +5.0 | Ppv 0.358 Pbat 5.007 Pgrid 5.155 loss 0.210 kW | Vdc 700.0 (699.7..700.3) | 49 s
+E 11/34 G  150 Pbat -5.0 | Ppv 1.358 Pbat -4.994 Pgrid -3.917 loss 0.281 kW | Vdc 700.0 (699.7..700.2) | 82 s
+E 12/34 G  150 Pbat -2.5 | Ppv 1.364 Pbat -2.494 Pgrid -1.391 loss 0.262 kW | Vdc 700.0 (699.8..700.3) | 74 s
+E 13/34 G  150 Pbat +0.0 | Ppv 1.301 Pbat 0.007 Pgrid 1.051 loss 0.258 kW | Vdc 700.0 (699.8..700.2) | 69 s
+E 14/34 G  150 Pbat +2.5 | Ppv 1.345 Pbat 2.507 Pgrid 3.587 loss 0.266 kW | Vdc 700.0 (699.7..700.2) | 76 s
+E 15/34 G  150 Pbat +5.0 | Ppv 1.276 Pbat 5.007 Pgrid 5.998 loss 0.286 kW | Vdc 699.9 (699.6..700.3) | 72 s
+E 16/34 G  300 Pbat -5.0 | Ppv 2.901 Pbat -4.994 Pgrid -2.376 loss 0.283 kW | Vdc 700.0 (699.8..700.2) | 131 s
+E 17/34 G  300 Pbat -2.5 | Ppv 2.886 Pbat -2.494 Pgrid 0.126 loss 0.266 kW | Vdc 700.0 (699.8..700.3) | 125 s
+E 18/34 G  300 Pbat +0.0 | Ppv 2.889 Pbat 0.007 Pgrid 2.634 loss 0.262 kW | Vdc 700.0 (699.7..700.2) | 122 s
+E 19/34 G  300 Pbat +2.5 | Ppv 2.870 Pbat 2.507 Pgrid 5.102 loss 0.275 kW | Vdc 700.1 (699.6..700.4) | 111 s
+E 20/34 G  300 Pbat +5.0 | Ppv 2.896 Pbat 5.007 Pgrid 7.605 loss 0.299 kW | Vdc 700.0 (699.5..700.4) | 126 s
+E 21/34 G  500 Pbat -5.0 | Ppv 4.892 Pbat -4.994 Pgrid -0.386 loss 0.284 kW | Vdc 700.0 (699.8..700.2) | 142 s
+E 22/34 G  500 Pbat -2.5 | Ppv 4.884 Pbat -2.494 Pgrid 2.118 loss 0.272 kW | Vdc 700.0 (699.6..700.3) | 142 s
+E 23/34 G  500 Pbat +0.0 | Ppv 4.884 Pbat 0.007 Pgrid 4.619 loss 0.271 kW | Vdc 700.0 (699.6..700.4) | 141 s
+E 24/34 G  500 Pbat +2.5 | Ppv 4.875 Pbat 2.507 Pgrid 7.095 loss 0.287 kW | Vdc 700.0 (699.5..700.5) | 140 s
+E 25/34 G  700 Pbat -5.0 | Ppv 6.865 Pbat -4.994 Pgrid 1.580 loss 0.290 kW | Vdc 700.0 (699.6..700.3) | 154 s
+E 26/34 G  700 Pbat -2.5 | Ppv 6.881 Pbat -2.494 Pgrid 4.108 loss 0.280 kW | Vdc 700.0 (699.7..700.3) | 499 s
+E 27/34 G  700 Pbat +0.0 | Ppv 6.865 Pbat 0.007 Pgrid 6.588 loss 0.284 kW | Vdc 700.0 (699.5..700.4) | 354 s
+E 28/34 G  700 Pbat +2.5 | Ppv 6.861 Pbat 2.507 Pgrid 9.067 loss 0.302 kW | Vdc 700.0 (699.4..700.6) | 151 s
+E 29/34 G  850 Pbat -5.0 | Ppv 8.340 Pbat -4.994 Pgrid 3.051 loss 0.295 kW | Vdc 700.0 (699.7..700.2) | 161 s
+E 30/34 G  850 Pbat -2.5 | Ppv 8.338 Pbat -2.494 Pgrid 5.557 loss 0.287 kW | Vdc 700.0 (699.6..700.3) | 155 s
+E 31/34 G  850 Pbat +0.0 | Ppv 8.344 Pbat 0.007 Pgrid 8.057 loss 0.294 kW | Vdc 700.0 (699.5..700.4) | 159 s
+E 32/34 G 1000 Pbat -5.0 | Ppv 9.784 Pbat -4.994 Pgrid 4.486 loss 0.304 kW | Vdc 700.0 (699.6..700.3) | 156 s
+E 33/34 G 1000 Pbat -2.5 | Ppv 9.781 Pbat -2.494 Pgrid 6.990 loss 0.297 kW | Vdc 700.0 (699.5..700.4) | 157 s
+E 34/34 G 1000 Pbat +0.0 | Ppv 9.778 Pbat 0.007 Pgrid 9.479 loss 0.306 kW | Vdc 700.0 (699.4..700.5) | 158 s
+Model closed without saving; the saved model is unchanged.
+ALL DONE

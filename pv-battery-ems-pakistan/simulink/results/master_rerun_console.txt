@@ -1,0 +1,74 @@
+>> master_rerun
+Original: P1 Time 0.4 After 5000 | P2 Time 0.8 After -10000 | Stop 0.6
+=== A: weak grid midday (Table IX) ===
+A SCR    0 | Zg 0.00 ohm | max|dVdc| 1.45 / 1.38 V | THD 0.94 / 1.99 % | Vpcc 1.000 pu | PV 9.76 export 4.44 kW | 90 s
+A SCR  100 | Zg 0.16 ohm | max|dVdc| 1.46 / 1.98 V | THD 1.69 / 3.40 % | Vpcc 1.002 pu | PV 9.74 export 4.43 kW | 90 s
+A SCR   20 | Zg 0.80 ohm | max|dVdc| 3.48 / 3.07 V | THD 15.07 / 30.89 % | Vpcc 1.022 pu | PV 9.74 export 4.44 kW | 88 s
+A SCR   10 | Zg 1.60 ohm | max|dVdc| 4.27 / 4.64 V | THD 16.86 / 37.63 % | Vpcc 1.045 pu | PV 9.74 export 4.43 kW | 87 s
+A SCR    5 | Zg 3.20 ohm | max|dVdc| 21.82 / 4.79 V | THD 13.37 / 28.03 % | Vpcc 1.091 pu | PV 9.75 export 4.43 kW | 87 s
+A SCR    3 | Zg 5.33 ohm | max|dVdc| 33.60 / 24.38 V | THD 13.08 / 23.32 % | Vpcc 1.102 pu | PV 9.77 export 4.53 kW | 87 s
+A SCR    2 | Zg 8.00 ohm | max|dVdc| 40.07 / 41.04 V | THD 9.69 / 23.58 % | Vpcc 1.120 pu | PV 9.74 export 4.53 kW | 83 s
+=== B: weak grid gains (Table X) ===
+B SCR  0 | original    | Kp 10.0 | THD phase a 1.64 % (3-phase 1.84) | neg-seq 2nd 0.17 % | d-ripple 4850 Hz 0.34 A | Vdc dev ss 1.4 V | 52 s
+B SCR 20 | original    | Kp 10.0 | THD phase a 17.12 % (3-phase 16.75) | neg-seq 2nd 14.52 % | d-ripple 150 Hz 1.95 A | Vdc dev ss 2.5 V | 51 s
+B SCR 20 | scaled      | Kp 15.6 | THD phase a 11.74 % (3-phase 11.70) | neg-seq 2nd 9.91 % | d-ripple 150 Hz 1.40 A | Vdc dev ss 1.9 V | 52 s
+B SCR 20 | scaled x1.5 | Kp 23.4 | THD phase a 7.85 % (3-phase 7.86) | neg-seq 2nd 6.48 % | d-ripple 150 Hz 0.91 A | Vdc dev ss 1.4 V | 51 s
+B SCR 10 | original    | Kp 10.0 | THD phase a 19.46 % (3-phase 19.31) | neg-seq 2nd 16.79 % | d-ripple 150 Hz 1.69 A | Vdc dev ss 3.1 V | 52 s
+B SCR 10 | scaled      | Kp 21.2 | THD phase a 12.27 % (3-phase 11.94) | neg-seq 2nd 10.08 % | d-ripple 150 Hz 1.13 A | Vdc dev ss 2.0 V | 51 s
+B SCR 10 | scaled x1.5 | Kp 31.8 | THD phase a 8.06 % (3-phase 8.04) | neg-seq 2nd 6.67 % | d-ripple 150 Hz 0.74 A | Vdc dev ss 1.5 V | 51 s
+B SCR  5 | original    | Kp 10.0 | THD phase a 14.78 % (3-phase 15.38) | neg-seq 2nd 13.11 % | d-ripple 150 Hz 0.86 A | Vdc dev ss 1.9 V | 50 s
+B SCR  5 | scaled      | Kp 32.4 | THD phase a 7.46 % (3-phase 7.52) | neg-seq 2nd 6.16 % | d-ripple 150 Hz 0.69 A | Vdc dev ss 1.8 V | 51 s
+B SCR  5 | scaled x1.5 | Kp 48.6 | THD phase a 5.35 % (3-phase 5.29) | neg-seq 2nd 3.98 % | d-ripple 150 Hz 0.44 A | Vdc dev ss 1.9 V | 50 s
+B SCR  3 | original    | Kp 10.0 | THD phase a 11.78 % (3-phase 12.32) | neg-seq 2nd 10.77 % | d-ripple 150 Hz 0.84 A | Vdc dev ss 2.5 V | 51 s
+B SCR  3 | scaled      | Kp 47.3 | THD phase a 4.21 % (3-phase 4.62) | neg-seq 2nd 3.81 % | d-ripple 150 Hz 0.43 A | Vdc dev ss 2.1 V | 51 s
+B SCR  3 | scaled x1.5 | Kp 71.0 | THD phase a 3.46 % (3-phase 3.60) | neg-seq 2nd 2.94 % | d-ripple 150 Hz 0.36 A | Vdc dev ss 1.7 V | 51 s
+B SCR  2 | original    | Kp 10.0 | THD phase a 9.68 % (3-phase 10.09) | neg-seq 2nd 9.45 % | d-ripple 150 Hz 0.84 A | Vdc dev ss 12.4 V | 51 s
+B SCR  2 | scaled      | Kp 66.0 | THD phase a 3.75 % (3-phase 3.75) | neg-seq 2nd 3.19 % | d-ripple 150 Hz 0.49 A | Vdc dev ss 38.6 V | 50 s
+B SCR  2 | scaled x1.5 | Kp 99.0 | THD phase a 2.81 % (3-phase 2.91) | neg-seq 2nd 2.25 % | d-ripple 150 Hz 0.35 A | Vdc dev ss 37.0 V | 50 s
+=== C: measured-battery-power feed-forward ===
+Battery source 400.0 V, Rbat 0.100 ohm: measured power = (Voc - Rbat*ibat)*ibat from the logged battery current, 0.5 ms first-order filter
+C reference | step +5 kW: peak dev -1.0 V, back in 0 ms | step -5 kW: peak dev -1.8 V, back in 0 ms | Ibat 12.50 / -12.50 A | export 7.53 / -2.40 kW | 53 s
+C measured  | step +5 kW: peak dev +3.6 V, back in 0 ms | step -5 kW: peak dev -5.8 V, back in 4 ms | Ibat 12.50 / -12.50 A | export 7.54 / -2.39 kW | 71 s
+SECTION C FAILED: An error occurred when concatenating the table variable 'variant' using VERTCAT.
+=== D: midday without feed-forward ===
+D FF 1 | peak Vdc deviation -1.4 V (699..701 V) | back within +/-5 V after 0 ms | export 9.42 -> 4.44 kW | 89 s
+D FF 0 | peak Vdc deviation -22.9 V (677..701 V) | back within +/-5 V after 67 ms | export 9.42 -> 4.44 kW | 87 s
+=== E: loss map ===
+E  1/34 G    5 Pbat -5.0 | Ppv 0.005 Pbat -5.001 Pgrid -5.055 loss 0.059 kW | Vdc 700.0 (699.5..700.4) | 13 s
+E  2/34 G    5 Pbat -2.5 | Ppv 0.005 Pbat -2.501 Pgrid -2.537 loss 0.041 kW | Vdc 700.0 (699.7..700.3) | 13 s
+E  3/34 G    5 Pbat +0.0 | Ppv 0.005 Pbat -0.001 Pgrid -0.029 loss 0.033 kW | Vdc 700.0 (699.7..700.3) | 12 s
+E  4/34 G    5 Pbat +2.5 | Ppv 0.005 Pbat 2.499 Pgrid 2.464 loss 0.040 kW | Vdc 700.0 (699.6..700.4) | 13 s
+E  5/34 G    5 Pbat +5.0 | Ppv 0.005 Pbat 4.999 Pgrid 4.944 loss 0.060 kW | Vdc 700.0 (699.6..700.5) | 13 s
+E  6/34 G   50 Pbat -5.0 | Ppv 0.354 Pbat -5.001 Pgrid -4.867 loss 0.220 kW | Vdc 700.0 (699.6..700.4) | 14 s
+E  7/34 G   50 Pbat -2.5 | Ppv 0.354 Pbat -2.501 Pgrid -2.347 loss 0.200 kW | Vdc 700.0 (699.5..700.4) | 14 s
+E  8/34 G   50 Pbat +0.0 | Ppv 0.354 Pbat -0.002 Pgrid 0.156 loss 0.195 kW | Vdc 700.0 (699.7..700.4) | 14 s
+E  9/34 G   50 Pbat +2.5 | Ppv 0.354 Pbat 2.498 Pgrid 2.652 loss 0.200 kW | Vdc 700.0 (699.5..700.5) | 14 s
+E 10/34 G   50 Pbat +5.0 | Ppv 0.354 Pbat 4.999 Pgrid 5.132 loss 0.220 kW | Vdc 700.0 (699.6..700.6) | 14 s
+E 11/34 G  150 Pbat -5.0 | Ppv 1.406 Pbat -5.001 Pgrid -3.889 loss 0.294 kW | Vdc 700.0 (699.3..700.5) | 32 s
+E 12/34 G  150 Pbat -2.5 | Ppv 1.352 Pbat -2.502 Pgrid -1.425 loss 0.275 kW | Vdc 700.0 (699.4..700.5) | 25 s
+E 13/34 G  150 Pbat +0.0 | Ppv 1.375 Pbat -0.002 Pgrid 1.104 loss 0.270 kW | Vdc 700.0 (699.4..700.4) | 29 s
+E 14/34 G  150 Pbat +2.5 | Ppv 1.402 Pbat 2.498 Pgrid 3.622 loss 0.278 kW | Vdc 700.0 (699.6..700.4) | 31 s
+E 15/34 G  150 Pbat +5.0 | Ppv 1.404 Pbat 4.998 Pgrid 6.102 loss 0.301 kW | Vdc 700.0 (699.3..700.7) | 33 s
+E 16/34 G  300 Pbat -5.0 | Ppv 2.900 Pbat -5.000 Pgrid -2.392 loss 0.291 kW | Vdc 700.0 (699.2..700.5) | 42 s
+E 17/34 G  300 Pbat -2.5 | Ppv 2.910 Pbat -2.501 Pgrid 0.131 loss 0.278 kW | Vdc 700.0 (699.6..700.3) | 45 s
+E 18/34 G  300 Pbat +0.0 | Ppv 2.816 Pbat -0.000 Pgrid 2.541 loss 0.275 kW | Vdc 700.0 (699.1..700.6) | 32 s
+E 19/34 G  300 Pbat +2.5 | Ppv 2.896 Pbat 2.499 Pgrid 5.107 loss 0.287 kW | Vdc 700.0 (699.2..700.6) | 45 s
+E 20/34 G  300 Pbat +5.0 | Ppv 2.896 Pbat 4.998 Pgrid 7.580 loss 0.314 kW | Vdc 700.1 (699.1..700.7) | 42 s
+E 21/34 G  500 Pbat -5.0 | Ppv 4.892 Pbat -5.001 Pgrid -0.406 loss 0.297 kW | Vdc 700.0 (699.5..700.5) | 49 s
+E 22/34 G  500 Pbat -2.5 | Ppv 4.889 Pbat -2.501 Pgrid 2.103 loss 0.285 kW | Vdc 700.0 (699.2..700.5) | 51 s
+E 23/34 G  500 Pbat +0.0 | Ppv 4.882 Pbat -0.001 Pgrid 4.596 loss 0.285 kW | Vdc 700.0 (699.0..700.4) | 49 s
+E 24/34 G  500 Pbat +2.5 | Ppv 4.890 Pbat 2.500 Pgrid 7.091 loss 0.299 kW | Vdc 700.0 (699.2..700.6) | 50 s
+E 25/34 G  700 Pbat -5.0 | Ppv 6.848 Pbat -5.001 Pgrid 1.549 loss 0.299 kW | Vdc 700.0 (699.2..700.6) | 52 s
+E 26/34 G  700 Pbat -2.5 | Ppv 6.851 Pbat -2.501 Pgrid 4.058 loss 0.292 kW | Vdc 700.0 (699.2..700.6) | 52 s
+E 27/34 G  700 Pbat +0.0 | Ppv 6.853 Pbat -0.000 Pgrid 6.557 loss 0.296 kW | Vdc 700.0 (699.4..700.5) | 53 s
+E 28/34 G  700 Pbat +2.5 | Ppv 6.838 Pbat 2.499 Pgrid 9.021 loss 0.316 kW | Vdc 700.1 (698.7..700.8) | 51 s
+E 29/34 G  850 Pbat -5.0 | Ppv 8.314 Pbat -5.001 Pgrid 3.004 loss 0.309 kW | Vdc 700.0 (699.1..700.6) | 54 s
+E 30/34 G  850 Pbat -2.5 | Ppv 8.308 Pbat -2.502 Pgrid 5.506 loss 0.300 kW | Vdc 700.0 (698.7..700.7) | 54 s
+E 31/34 G  850 Pbat +0.0 | Ppv 8.323 Pbat -0.001 Pgrid 8.010 loss 0.311 kW | Vdc 700.0 (699.4..700.6) | 55 s
+E 32/34 G 1000 Pbat -5.0 | Ppv 9.741 Pbat -5.000 Pgrid 4.432 loss 0.309 kW | Vdc 700.0 (699.0..700.9) | 55 s
+E 33/34 G 1000 Pbat -2.5 | Ppv 9.754 Pbat -2.502 Pgrid 6.943 loss 0.309 kW | Vdc 700.0 (699.0..700.9) | 54 s
+E 34/34 G 1000 Pbat +0.0 | Ppv 9.741 Pbat -0.001 Pgrid 9.420 loss 0.320 kW | Vdc 700.0 (698.6..700.9) | 54 s
+=== F: figure data ===
+figure data written
+ALL DONE
+>> 

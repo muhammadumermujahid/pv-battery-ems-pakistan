@@ -1,0 +1,9 @@
+Item 3b - partial shading (A = 1000 W/m2, B shaded), 10  ms averaged P&O, RC 8 ohm, tracker start duty 0.5
+Section: 4 modules in series x 2 strings
+Uniform check after wiring: P mean 9.752 kW, Vpv 367.4 V
+B 1000->1000 | true GMPP 9.841 kW at 374 V | peaks:  374 V/9.84 kW | P&O 9.741 kW = 99.0 % of GMPP at 367 V (nearest peak 374 V)
+B  600-> 600 | true GMPP 6.306 kW at 392 V | peaks:  186 V/4.90 kW  392 V/6.31 kW | P&O 6.231 kW = 98.8 % of GMPP at 388 V (nearest peak 392 V)
+B  300-> 300 | true GMPP 4.899 kW at 186 V | peaks:  186 V/4.90 kW  399 V/3.17 kW | P&O 3.010 kW = 61.4 % of GMPP at 367 V (nearest peak 399 V)
+B  100-> 100 | true GMPP 4.899 kW at 186 V | peaks:  186 V/4.90 kW  396 V/1.01 kW | P&O 0.949 kW = 19.4 % of GMPP at 352 V (nearest peak 396 V)
+B 1000-> 300 (event) | true GMPP 4.899 kW at 186 V | peaks:  186 V/4.90 kW  399 V/3.17 kW | P&O 3.104 kW = 63.4 % of GMPP at 381 V (nearest peak 399 V)
+B  300->1000 (event) | true GMPP 9.841 kW at 374 V | peaks:  374 V/9.84 kW | P&O 9.748 kW = 99.1 % of GMPP at 367 V (nearest peak 374 V)

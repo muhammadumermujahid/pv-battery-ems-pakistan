@@ -1,0 +1,46 @@
+Original: R=0.01 L=1e-4 ParK=[180, 3200, 1] Irr 300->300 at 0.25  P1 After=5000  Stop=0.6
+ 1/19 SCR  0 X/R 7 PLL x1.00 | Lg NaN mH | Vpcc 1.001 pu | Vdc dev step 18.8 / ss 0.7 V | f dev 0.01 Hz | id ripple 22.4 % | THD 2.06 % | stable 0 | 12 s
+ 2/19 SCR 20 X/R 7 PLL x1.00 | Lg 2.5 mH | Vpcc 1.025 pu | Vdc dev step 19.7 / ss 3.2 V | f dev 0.08 Hz | id ripple 58.3 % | THD 17.57 % | stable 0 | 11 s
+ 3/19 SCR 20 X/R 7 PLL x0.50 | Lg 2.5 mH | Vpcc 1.025 pu | Vdc dev step 19.5 / ss 3.4 V | f dev 0.04 Hz | id ripple 58.3 % | THD 17.74 % | stable 0 | 11 s
+ 4/19 SCR 20 X/R 7 PLL x0.25 | Lg 2.5 mH | Vpcc 1.025 pu | Vdc dev step 18.8 / ss 3.3 V | f dev 0.03 Hz | id ripple 58.3 % | THD 17.69 % | stable 0 | 11 s
+ 5/19 SCR 10 X/R 7 PLL x1.00 | Lg 5.0 mH | Vpcc 1.047 pu | Vdc dev step 19.0 / ss 2.9 V | f dev 0.10 Hz | id ripple 51.2 % | THD 19.32 % | stable 0 | 12 s
+ 6/19 SCR 10 X/R 7 PLL x0.50 | Lg 5.0 mH | Vpcc 1.047 pu | Vdc dev step 18.7 / ss 3.8 V | f dev 0.10 Hz | id ripple 52.3 % | THD 19.13 % | stable 0 | 11 s
+ 7/19 SCR 10 X/R 7 PLL x0.25 | Lg 5.0 mH | Vpcc 1.047 pu | Vdc dev step 18.3 / ss 2.8 V | f dev 0.03 Hz | id ripple 50.4 % | THD 19.60 % | stable 0 | 11 s
+ 8/19 SCR  5 X/R 7 PLL x1.00 | Lg 10.1 mH | Vpcc 1.088 pu | Vdc dev step 20.7 / ss 2.5 V | f dev 0.11 Hz | id ripple 36.4 % | THD 14.42 % | stable 0 | 11 s
+ 9/19 SCR  5 X/R 7 PLL x0.50 | Lg 10.1 mH | Vpcc 1.089 pu | Vdc dev step 21.0 / ss 2.6 V | f dev 0.09 Hz | id ripple 38.7 % | THD 15.32 % | stable 0 | 11 s
+10/19 SCR  5 X/R 7 PLL x0.25 | Lg 10.1 mH | Vpcc 1.088 pu | Vdc dev step 16.9 / ss 3.2 V | f dev 0.04 Hz | id ripple 41.3 % | THD 14.68 % | stable 0 | 11 s
+11/19 SCR  3 X/R 7 PLL x1.00 | Lg 16.8 mH | Vpcc 1.084 pu | Vdc dev step 14.4 / ss 2.3 V | f dev 0.12 Hz | id ripple 25.1 % | THD 12.09 % | stable 0 | 11 s
+12/19 SCR  3 X/R 7 PLL x0.50 | Lg 16.8 mH | Vpcc 1.085 pu | Vdc dev step 14.4 / ss 2.6 V | f dev 0.15 Hz | id ripple 25.7 % | THD 12.12 % | stable 0 | 11 s
+13/19 SCR  3 X/R 7 PLL x0.25 | Lg 16.8 mH | Vpcc 1.087 pu | Vdc dev step 15.0 / ss 2.8 V | f dev 0.06 Hz | id ripple 26.0 % | THD 13.22 % | stable 0 | 11 s
+14/19 SCR  2 X/R 7 PLL x1.00 | Lg 25.2 mH | Vpcc 1.046 pu | Vdc dev step 19.5 / ss 7.0 V | f dev 0.18 Hz | id ripple 34.0 % | THD 10.53 % | stable 0 | 11 s
+15/19 SCR  2 X/R 7 PLL x0.50 | Lg 25.2 mH | Vpcc 1.046 pu | Vdc dev step 18.8 / ss 8.4 V | f dev 0.18 Hz | id ripple 31.7 % | THD 10.63 % | stable 0 | 11 s
+16/19 SCR  2 X/R 7 PLL x0.25 | Lg 25.2 mH | Vpcc 1.049 pu | Vdc dev step 20.3 / ss 12.5 V | f dev 0.06 Hz | id ripple 30.3 % | THD 11.64 % | stable 0 | 11 s
+17/19 SCR  5 X/R 2 PLL x1.00 | Lg 9.1 mH | Vpcc 1.134 pu | Vdc dev step 20.5 / ss 3.0 V | f dev 0.10 Hz | id ripple 30.8 % | THD 14.20 % | stable 0 | 11 s
+18/19 SCR  3 X/R 2 PLL x1.00 | Lg 15.2 mH | Vpcc 1.185 pu | Vdc dev step 18.8 / ss 1.8 V | f dev 0.12 Hz | id ripple 17.9 % | THD 10.49 % | stable 0 | 11 s
+19/19 SCR  2 X/R 2 PLL x1.00 | Lg 22.8 mH | Vpcc 1.235 pu | Vdc dev step 26.2 / ss 2.6 V | f dev 0.14 Hz | id ripple 10.1 % | THD 6.35 % | stable 1 | 11 s
+    SCR    XR    PLLscale    Lg_mH     Vpcc_pu    Vdc_dev_step    Vdc_dev_ss    PLLf_dev_step    id_ripple_pct    THD_pct    stable
+    ___    __    ________    ______    _______    ____________    __________    _____________    _____________    _______    ______
+
+     0     7          1         NaN    1.0007        18.764         0.7159        0.005579          22.434         2.056       0   
+    20     7          1      2.5209    1.0247        19.681         3.1601        0.080704          58.255        17.572       0   
+    20     7        0.5      2.5209    1.0246        19.476          3.369        0.044705          58.277        17.744       0   
+    20     7       0.25      2.5209    1.0248        18.816         3.3032        0.029999          58.341        17.695       0   
+    10     7          1      5.0418    1.0473        18.964          2.937         0.10138          51.248        19.321       0   
+    10     7        0.5      5.0418    1.0474        18.711         3.8445          0.1028           52.27         19.13       0   
+    10     7       0.25      5.0418    1.0474        18.308         2.8045        0.031214          50.386        19.603       0   
+     5     7          1      10.084    1.0882        20.702         2.4994         0.10972          36.426        14.416       0   
+     5     7        0.5      10.084    1.0889        21.017         2.6456        0.094473          38.729        15.318       0   
+     5     7       0.25      10.084    1.0885        16.872         3.2295        0.037272           41.27        14.677       0   
+     3     7          1      16.806    1.0838        14.377         2.3164         0.11976          25.123        12.091       0   
+     3     7        0.5      16.806    1.0854        14.435         2.5525         0.14502          25.653        12.123       0   
+     3     7       0.25      16.806    1.0865        15.036          2.779        0.057435          25.976        13.225       0   
+     2     7          1      25.209    1.0463        19.493         6.9763         0.18328          33.955        10.526       0   
+     2     7        0.5      25.209     1.046         18.77         8.3796         0.17591          31.715         10.63       0   
+     2     7       0.25      25.209    1.0488        20.317         12.463        0.059267          30.296        11.638       0   
+     5     2          1      9.1106    1.1341        20.526         3.0123          0.1034          30.756        14.198       0   
+     3     2          1      15.184    1.1849        18.842         1.8466         0.12299          17.877        10.494       0   
+     2     2          1      22.776    1.2352        26.229         2.6344         0.13948          10.111        6.3468       1   
+
+
+Saved item2_weakgrid.csv and item2_signals.mat in <model folder>
+>> 

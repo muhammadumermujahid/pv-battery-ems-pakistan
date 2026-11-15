@@ -1,0 +1,82 @@
+=== CAL (Table II run) ===
+1000 W/m2, 0.3-0.5 s               | rect a   1.80 %, 3ph   1.90 % (h7 1.46, h5 0.40, h6 0.38) | Hann a   1.78 %, 3ph   1.93 % | I1 19.20 A pk
+600 W/m2, 0.9-1.1 s                | rect a   3.13 %, 3ph   3.40 % (h7 2.46, h5 1.00, h13 0.74) | Hann a   3.12 %, 3ph   3.41 % | I1 11.38 A pk
+=== MID (Table IV midday) ===
+midday idle 0.3-0.5 s              | rect a   1.80 %, 3ph   1.90 % (h7 1.46, h5 0.40, h6 0.38) | Hann a   1.78 %, 3ph   1.93 % | I1 19.20 A pk
+midday charge 0.8-1.0 s            | rect a   4.08 %, 3ph   4.22 % (h7 3.17, h5 1.02, h13 0.79) | Hann a   4.19 %, 3ph   4.34 % | I1 9.07 A pk
+=== A (Table IX, midday run, X/R 7) ===
+SCR 0: max|dVdc| idle 1.45 V, charge 1.38 V
+  SCR 0 idle 0.3-0.5 s             | rect a   1.80 %, 3ph   1.90 % (h7 1.46, h5 0.40, h6 0.38) | Hann a   1.78 %, 3ph   1.93 % | I1 19.20 A pk
+  SCR 0 charge 0.8-1.0 s           | rect a   4.08 %, 3ph   4.22 % (h7 3.17, h5 1.02, h13 0.79) | Hann a   4.19 %, 3ph   4.34 % | I1 9.07 A pk
+SCR 100: max|dVdc| idle 1.46 V, charge 1.98 V
+  SCR 100 idle 0.3-0.5 s           | rect a   3.40 %, 3ph   3.44 % (h5 2.50, h2 1.24, h7 1.08) | Hann a   3.39 %, 3ph   3.46 % | I1 19.21 A pk
+  SCR 100 charge 0.8-1.0 s         | rect a   7.06 %, 3ph   7.28 % (h5 5.56, h4 2.22, h2 2.07) | Hann a   7.00 %, 3ph   7.25 % | I1 9.04 A pk
+SCR 20: max|dVdc| idle 3.48 V, charge 3.07 V
+  SCR 20 idle 0.3-0.5 s            | rect a  17.86 %, 3ph  17.59 % (h2 14.54, h5 6.62, h4 6.00) | Hann a  17.84 %, 3ph  17.61 % | I1 19.14 A pk
+  SCR 20 charge 0.8-1.0 s          | rect a  35.49 %, 3ph  36.49 % (h2 29.88, h4 14.07, h5 12.56) | Hann a  35.09 %, 3ph  36.34 % | I1 9.02 A pk
+SCR 10: max|dVdc| idle 4.27 V, charge 4.64 V
+  SCR 10 idle 0.3-0.5 s            | rect a  19.81 %, 3ph  19.38 % (h2 16.71, h5 9.08, h4 2.28) | Hann a  19.85 %, 3ph  19.39 % | I1 19.09 A pk
+  SCR 10 charge 0.8-1.0 s          | rect a  43.10 %, 3ph  43.25 % (h2 37.43, h5 20.13, h4 5.38) | Hann a  43.05 %, 3ph  43.16 % | I1 8.99 A pk
+SCR 5: max|dVdc| idle 21.82 V, charge 4.79 V
+  SCR 5 idle 0.3-0.5 s             | rect a  14.72 %, 3ph  15.52 % (h2 13.01, h5 6.86, h4 3.82) | Hann a  14.97 %, 3ph  15.64 % | I1 19.37 A pk
+  SCR 5 charge 0.8-1.0 s           | rect a  37.14 %, 3ph  33.52 % (h2 27.97, h5 14.55, h4 8.77) | Hann a  36.64 %, 3ph  33.06 % | I1 8.96 A pk
+SCR 3: max|dVdc| idle 33.60 V, charge 24.38 V
+  SCR 3 idle 0.3-0.5 s             | rect a  14.38 %, 3ph  14.42 % (h2 13.09, h5 4.20, h4 3.97) | Hann a  14.15 %, 3ph  14.12 % | I1 19.38 A pk
+  SCR 3 charge 0.8-1.0 s           | rect a  26.38 %, 3ph  26.92 % (h2 23.09, h5 11.01, h4 6.57) | Hann a  26.05 %, 3ph  26.80 % | I1 9.16 A pk
+SCR 2: max|dVdc| idle 40.07 V, charge 41.04 V
+  SCR 2 idle 0.3-0.5 s             | rect a  10.03 %, 3ph  10.20 % (h2 9.59, h5 2.33, h4 2.00) | Hann a  10.05 %, 3ph  10.21 % | I1 20.09 A pk
+  SCR 2 charge 0.8-1.0 s           | rect a  25.66 %, 3ph  25.92 % (h2 23.20, h5 8.35, h4 6.87) | Hann a  25.81 %, 3ph  26.08 % | I1 9.18 A pk
+=== B (Table X, idle, 600->1000 W/m2 at 0.25 s, window 0.5-0.6 s) ===
+SCR 0 original (neg2 0.17 %)       | rect a   1.66 %, 3ph   1.85 % (h7 1.34, h5 0.47, h10 0.39) | Hann a   1.67 %, 3ph   1.88 % | I1 19.21 A pk
+SCR 20 original (neg2 14.52 %)     | rect a  17.69 %, 3ph  17.53 % (h2 14.49, h5 6.60, h4 6.01) | Hann a  17.83 %, 3ph  17.55 % | I1 19.16 A pk
+SCR 20 scaled (neg2 9.91 %)        | rect a  12.50 %, 3ph  12.44 % (h2 9.90, h4 4.87, h5 4.57) | Hann a  12.49 %, 3ph  12.45 % | I1 19.15 A pk
+SCR 20 scaled x1.5 (neg2 6.48 %)   | rect a   8.28 %, 3ph   8.32 % (h2 6.46, h5 3.33, h4 3.19) | Hann a   8.30 %, 3ph   8.35 % | I1 19.18 A pk
+SCR 10 original (neg2 16.79 %)     | rect a  19.61 %, 3ph  19.39 % (h2 16.71, h5 9.07, h4 2.52) | Hann a  19.60 %, 3ph  19.47 % | I1 19.09 A pk
+SCR 10 scaled (neg2 10.08 %)       | rect a  12.30 %, 3ph  11.91 % (h2 10.02, h5 5.50, h4 1.78) | Hann a  12.40 %, 3ph  12.06 % | I1 19.06 A pk
+SCR 10 scaled x1.5 (neg2 6.67 %)   | rect a   7.91 %, 3ph   7.91 % (h2 6.58, h5 3.65, h7 1.26) | Hann a   8.12 %, 3ph   8.10 % | I1 19.11 A pk
+SCR 5 original (neg2 13.11 %)      | rect a  14.99 %, 3ph  15.75 % (h2 13.07, h5 6.93, h4 4.23) | Hann a  15.19 %, 3ph  15.83 % | I1 19.20 A pk
+SCR 5 scaled (neg2 6.16 %)         | rect a   7.42 %, 3ph   7.62 % (h2 6.21, h5 3.58, h4 1.04) | Hann a   7.60 %, 3ph   7.63 % | I1 19.23 A pk
+SCR 5 scaled x1.5 (neg2 3.98 %)    | rect a   5.18 %, 3ph   5.29 % (h2 3.94, h5 2.35, h8 1.14) | Hann a   5.38 %, 3ph   5.38 % | I1 19.12 A pk
+SCR 3 original (neg2 10.77 %)      | rect a  12.21 %, 3ph  12.79 % (h2 11.00, h5 5.45, h4 2.69) | Hann a  12.02 %, 3ph  12.56 % | I1 19.52 A pk
+SCR 3 scaled (neg2 3.81 %)         | rect a   4.37 %, 3ph   4.55 % (h2 3.73, h5 1.90, h8 0.78) | Hann a   4.31 %, 3ph   4.69 % | I1 19.45 A pk
+SCR 3 scaled x1.5 (neg2 2.94 %)    | rect a   3.38 %, 3ph   3.50 % (h2 2.87, h5 1.11, h4 0.82) | Hann a   3.55 %, 3ph   3.68 % | I1 19.41 A pk
+SCR 2 original (neg2 9.45 %)       | rect a   9.81 %, 3ph  10.30 % (h2 9.41, h5 2.94, h4 2.53) | Hann a   9.95 %, 3ph  10.35 % | I1 20.51 A pk
+SCR 2 scaled (neg2 3.19 %)         | rect a   3.69 %, 3ph   3.72 % (h2 3.16, h4 1.60, h8 0.52) | Hann a   3.92 %, 3ph   3.97 % | I1 20.04 A pk
+SCR 2 scaled x1.5 (neg2 2.25 %)    | rect a   2.99 %, 3ph   2.98 % (h2 2.32, h4 1.33, h8 0.46) | Hann a   3.04 %, 3ph   3.11 % | I1 20.04 A pk
+=== R2 (PLL scaling, X/R 2) ===
+SCR 20 X/R 7 PLL x0.50             | rect a  17.85 %, 3ph  17.63 % (h2 14.51, h5 6.67, h4 6.07) | Hann a  17.98 %, 3ph  17.70 % | I1 19.13 A pk
+SCR 20 X/R 7 PLL x0.25             | rect a  17.71 %, 3ph  17.60 % (h2 14.55, h5 6.63, h4 6.02) | Hann a  17.83 %, 3ph  17.64 % | I1 19.16 A pk
+SCR 5 X/R 7 PLL x0.50              | rect a  14.66 %, 3ph  15.77 % (h2 13.16, h5 6.90, h4 4.08) | Hann a  14.46 %, 3ph  16.00 % | I1 19.21 A pk
+SCR 5 X/R 7 PLL x0.25              | rect a  15.46 %, 3ph  15.62 % (h2 13.02, h5 6.85, h4 4.00) | Hann a  15.74 %, 3ph  15.82 % | I1 19.11 A pk
+SCR 2 X/R 7 PLL x0.50              | rect a  10.10 %, 3ph  10.27 % (h2 9.35, h5 2.92, h4 2.62) | Hann a  10.13 %, 3ph  10.43 % | I1 20.49 A pk
+SCR 2 X/R 7 PLL x0.25              | rect a  10.57 %, 3ph  10.19 % (h2 9.25, h5 2.89, h4 2.55) | Hann a  10.71 %, 3ph  10.25 % | I1 20.13 A pk
+SCR 5 X/R 2 PLL x1.00              | rect a  14.83 %, 3ph  15.29 % (h2 11.47, h5 8.08, h4 4.31) | Hann a  14.57 %, 3ph  15.12 % | I1 18.11 A pk
+SCR 3 X/R 2 PLL x1.00              | rect a  11.06 %, 3ph  10.72 % (h2 7.82, h5 5.11, h4 3.71) | Hann a  10.92 %, 3ph  10.72 % | I1 17.65 A pk
+SCR 2 X/R 2 PLL x1.00              | rect a   6.74 %, 3ph   6.74 % (h2 4.06, h5 3.68, h4 2.77) | Hann a   6.77 %, 3ph   6.78 % | I1 17.24 A pk
+=== R3 (decoupling / gain variants, X/R 7) ===
+SCR 20 as built                    | rect a  17.69 %, 3ph  17.53 % (h2 14.49, h5 6.60, h4 6.01) | Hann a  17.83 %, 3ph  17.55 % | I1 19.16 A pk
+SCR 20 wL matched                  | rect a  17.43 %, 3ph  17.18 % (h2 14.07, h5 6.40, h4 6.26) | Hann a  17.32 %, 3ph  17.12 % | I1 19.16 A pk
+SCR 20 wL matched, x0.5            | rect a  19.43 %, 3ph  19.16 % (h2 16.02, h5 7.43, h4 5.92) | Hann a  18.99 %, 3ph  19.11 % | I1 19.15 A pk
+SCR 20 as built wL, x0.5           | rect a  20.47 %, 3ph  20.56 % (h2 17.62, h5 7.70, h4 5.77) | Hann a  20.57 %, 3ph  20.70 % | I1 19.15 A pk
+SCR 20 wL matched, x2              | rect a   9.96 %, 3ph   9.66 % (h2 7.50, h5 3.94, h4 3.75) | Hann a   9.95 %, 3ph   9.68 % | I1 19.12 A pk
+SCR 10 as built                    | rect a  19.61 %, 3ph  19.39 % (h2 16.71, h5 9.07, h4 2.52) | Hann a  19.60 %, 3ph  19.47 % | I1 19.09 A pk
+SCR 10 wL matched                  | rect a  19.07 %, 3ph  18.76 % (h2 15.99, h5 9.28, h7 2.09) | Hann a  19.19 %, 3ph  18.76 % | I1 19.10 A pk
+SCR 10 wL matched, x0.5            | rect a  23.39 %, 3ph  23.84 % (h2 20.64, h5 10.65, h4 3.84) | Hann a  23.76 %, 3ph  23.74 % | I1 19.09 A pk
+SCR 10 as built wL, x0.5           | rect a  26.51 %, 3ph  27.18 % (h2 23.62, h5 11.38, h4 5.68) | Hann a  25.84 %, 3ph  27.26 % | I1 19.16 A pk
+SCR 10 wL matched, x2              | rect a  12.34 %, 3ph  12.16 % (h2 10.06, h5 5.80, h4 1.90) | Hann a  12.41 %, 3ph  12.14 % | I1 19.11 A pk
+SCR 5 as built                     | rect a  14.99 %, 3ph  15.75 % (h2 13.07, h5 6.93, h4 4.23) | Hann a  15.19 %, 3ph  15.83 % | I1 19.20 A pk
+SCR 5 wL matched                   | rect a  15.09 %, 3ph  13.68 % (h2 10.78, h5 6.19, h4 4.07) | Hann a  15.07 %, 3ph  13.68 % | I1 19.18 A pk
+SCR 5 wL matched, x0.5             | rect a  19.27 %, 3ph  18.78 % (h2 14.84, h5 8.06, h4 6.46) | Hann a  19.22 %, 3ph  18.86 % | I1 19.18 A pk
+SCR 5 as built wL, x0.5            | rect a  21.02 %, 3ph  21.78 % (h2 18.08, h5 8.12, h4 7.15) | Hann a  20.77 %, 3ph  21.64 % | I1 19.06 A pk
+SCR 5 wL matched, x2               | rect a   8.99 %, 3ph   8.77 % (h2 7.06, h5 4.17, h10 1.26) | Hann a   9.15 %, 3ph   9.10 % | I1 19.21 A pk
+SCR 3 as built                     | rect a  12.21 %, 3ph  12.79 % (h2 11.00, h5 5.45, h4 2.69) | Hann a  12.02 %, 3ph  12.56 % | I1 19.52 A pk
+SCR 3 wL matched                   | rect a  11.31 %, 3ph  10.61 % (h2 9.40, h5 4.18, h4 1.99) | Hann a  11.09 %, 3ph  10.27 % | I1 19.58 A pk
+SCR 3 wL matched, x0.5             | rect a  43.38 %, 3ph  39.04 % (h2 34.70, h4 10.50, h5 5.77) | Hann a  13.27 %, 3ph  14.30 % | I1 5.96 A pk
+SCR 3 as built wL, x0.5            | rect a  14.45 %, 3ph  14.36 % (h2 12.31, h5 6.01, h4 3.28) | Hann a  14.31 %, 3ph  14.39 % | I1 19.49 A pk
+SCR 3 wL matched, x2               | rect a   7.75 %, 3ph   7.75 % (h2 6.56, h5 3.36, h4 1.44) | Hann a   7.63 %, 3ph   7.75 % | I1 19.72 A pk
+SCR 2 as built                     | rect a   9.81 %, 3ph  10.30 % (h2 9.41, h5 2.94, h4 2.53) | Hann a   9.95 %, 3ph  10.35 % | I1 20.51 A pk
+SCR 2 wL matched                   | rect a   7.43 %, 3ph   7.86 % (h2 7.05, h5 2.53, h7 1.03) | Hann a   7.49 %, 3ph   7.73 % | I1 19.05 A pk
+SCR 2 wL matched, x0.5             | rect a  66.16 %, 3ph  62.33 % (h3 57.15, h4 14.32, h2 12.30) | Hann a 106.28 %, 3ph  94.78 % | I1 25.34 A pk
+SCR 2 as built wL, x0.5            | rect a  11.68 %, 3ph  11.76 % (h2 11.27, h5 2.73, h4 1.57) | Hann a  11.69 %, 3ph  11.63 % | I1 21.97 A pk
+SCR 2 wL matched, x2               | rect a   6.15 %, 3ph   6.26 % (h2 5.66, h4 1.84, h5 1.39) | Hann a   6.31 %, 3ph   6.12 % | I1 20.09 A pk
+ALL DONE

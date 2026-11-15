@@ -1,0 +1,5 @@
+Item 2b diagnostics (SCR 0 / 20 / 5, X/R 7; 1000 W/m2 after a step from 600 W/m2; phase-a current, 0.5-0.6 s)
+=== SCR 0 ===  windows THD 2.15 / 2.06 / 2.06 %; id p-p 5.08 / 4.29 / 4.30 A; peaks 4900 Hz 3.77 %, 5100 Hz 3.55 %, 350 Hz 1.52 %; bands 2-10 1.85 %, 11-25 0.69 %, 26-50 0.59 %
+=== SCR 20 === windows THD 16.73 / 17.42 / 17.57 %; id p-p 11.57 / 10.86 / 10.85 A; peaks 100 Hz 15.24 %, 250 Hz 6.93 %, 200 Hz 6.17 %, 350 Hz 2.73 %, 4900 Hz 2.60 %; bands 2-10 17.44 %, 11-25 2.08 %, 26-50 0.57 %
+=== SCR 5 ===  windows THD 14.33 / 14.39 / 14.42 %; id p-p 7.08 / 7.01 / 6.95 A; peaks 100 Hz 12.20 %, 250 Hz 6.73 %, 200 Hz 3.80 %, 350 Hz 2.44 %; bands 2-10 14.33 %, 11-25 0.95 %, 26-50 1.21 %
+Sequence analysis (percent of positive-sequence fundamental), SCR 0: neg-seq 2nd 0.27, 4th 0.50; pos-seq 6th 1.53.  SCR 20: neg-seq 2nd 14.70, 4th 6.74, 7th 1.48; pos-seq 3rd 3.28, 6th 2.75; DC offsets a/b/c 0.008/-0.100/0.092 A; rms 13.36/13.43/13.38 A; d-axis ripple 150 Hz 1.93 A.

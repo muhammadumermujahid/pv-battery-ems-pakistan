@@ -1,0 +1,12 @@
+Cin as found: RC, R = 8, C = 100e-6
+Parallel damper design: R0 = 8.37 ohm, n = 4, C_d = 400 uF, R_d = 5.12 ohm
+pure C        G  300 | PV 2.920 kW = 100.8 % of available | P(1ms) 2.26..3.51 kW | Vpv 364.2 V, p-p(1ms) 39.0 V | oscillation 150 Hz, 0.149 kW | boost eff 91.68 %
+pure C        G  600 | PV 5.906 kW = 99.9 % of available | P(1ms) 5.33..6.49 kW | Vpv 371.6 V, p-p(1ms) 35.1 V | oscillation 150 Hz, 0.086 kW | boost eff 95.77 %
+pure C        G 1000 | PV 9.790 kW = 99.5 % of available | P(1ms) 8.98..10.23 kW | Vpv 367.1 V, p-p(1ms) 35.9 V | oscillation 150 Hz, 0.047 kW | boost eff 97.34 %
+series 8 ohm  G  300 | PV 2.798 kW = 96.6 % of available | P(1ms) 2.45..3.09 kW | Vpv 344.6 V, p-p(1ms) 27.2 V | oscillation   6 Hz, 0.026 kW | boost eff 91.30 %
+series 8 ohm  G  600 | PV 5.869 kW = 99.2 % of available | P(1ms) 5.53..6.22 kW | Vpv 371.9 V, p-p(1ms) 23.3 V | oscillation  50 Hz, 0.057 kW | boost eff 95.75 %
+series 8 ohm  G 1000 | PV 9.752 kW = 99.1 % of available | P(1ms) 9.38..9.92 kW | Vpv 367.4 V, p-p(1ms) 23.9 V | oscillation  18 Hz, 0.027 kW | boost eff 97.33 %
+parallel R-C  G  300 | PV 2.720 kW = 93.8 % of available | P(1ms) 1.78..3.70 kW | Vpv 329.9 V, p-p(1ms) 47.5 V | oscillation  50 Hz, 0.162 kW | boost eff 91.09 %
+parallel R-C  G  600 | PV 5.773 kW = 97.6 % of available | P(1ms) 4.90..6.72 kW | Vpv 355.1 V, p-p(1ms) 28.6 V | oscillation  50 Hz, 0.296 kW | boost eff 95.66 %
+parallel R-C  G 1000 | PV 9.598 kW = 97.5 % of available | P(1ms) 8.84..10.54 kW | Vpv 355.5 V, p-p(1ms) 27.4 V | oscillation  50 Hz, 0.296 kW | boost eff 97.28 %
+parallel R-C, Table II run: PV 9.602 / 5.540 kW, AC 9.282 / 5.246 kW, THD(rect a) 1.99 / 3.51 %

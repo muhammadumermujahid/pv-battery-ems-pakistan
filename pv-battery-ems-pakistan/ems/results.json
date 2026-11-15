@@ -1,0 +1,417 @@
+{
+ "config": {
+  "v2_thr": 25.0,
+  "pv_kwp": 10.0,
+  "inv_kw": 10.0,
+  "pv_pr": 0.78,
+  "use_pvgis": true,
+  "batt_kwh": 15.0,
+  "batt_kw": 5.0,
+  "eta": 0.96,
+  "soc_min": 0.2,
+  "soc0": 0.5,
+  "tariff_off": 34.53,
+  "tariff_peak": 46.85,
+  "peak": {
+   "summer": [
+    19.0,
+    23.0
+   ],
+   "winter": [
+    18.0,
+    22.0
+   ]
+  },
+  "export_price": 10.5,
+  "degr": 7.7,
+  "pv_day_kwh": {
+   "summer": 46.0,
+   "winter": 26.0,
+   "cloudy": 15.0
+  },
+  "daylight": {
+   "summer": [
+    5.5,
+    19.0
+   ],
+   "winter": [
+    7.0,
+    17.5
+   ]
+  }
+ },
+ "seasons": {
+  "summer": {
+   "scenarios": [
+    {
+     "name": "Grid-tied PV only (no battery)",
+     "bill": 1013.677517249375,
+     "export_credit": 410.27718571875005,
+     "degradation": 0.0,
+     "terminal_adj": 0.0,
+     "total": 603.400331530625,
+     "import_kwh": 23.922987687499997,
+     "export_kwh": 39.0740176875,
+     "peak_import_kwh": 15.2286325,
+     "load_kwh": 34.955,
+     "pv_kwh": 50.10603,
+     "self_consumption": 0.2201733466510916,
+     "self_sufficiency": 0.3156061310971249,
+     "batt_throughput_kwh": 0.0,
+     "balance_residual": 4.440892098500626e-16
+    },
+    {
+     "name": "PV + battery, self-consumption",
+     "bill": 326.80193675249984,
+     "export_credit": 277.02795384619145,
+     "degradation": 123.31916086875002,
+     "terminal_adj": 149.16959999999997,
+     "total": 322.2627437750584,
+     "import_kwh": 7.907512249999996,
+     "export_kwh": 26.38361465201823,
+     "peak_import_kwh": 4.363274249999998,
+     "load_kwh": 34.955,
+     "pv_kwh": 50.10603,
+     "self_consumption": 0.47344432093266553,
+     "self_sufficiency": 0.773780224574453,
+     "batt_throughput_kwh": 16.0154754375,
+     "balance_residual": 2.220446049250313e-16
+    },
+    {
+     "name": "Rule-based EMS",
+     "bill": 288.26989590937507,
+     "export_credit": 241.93069162500007,
+     "degradation": 56.62655893125,
+     "terminal_adj": 5.32102336312479,
+     "total": 108.2867865787498,
+     "import_kwh": 8.3483896875,
+     "export_kwh": 23.041018250000008,
+     "peak_import_kwh": 0.0,
+     "load_kwh": 34.955,
+     "pv_kwh": 50.10603,
+     "self_consumption": 0.5401547827676627,
+     "self_sufficiency": 0.7611675100128736,
+     "batt_throughput_kwh": 7.3540985625,
+     "balance_residual": 2.220446049250313e-16
+    },
+    {
+     "name": "MILP optimum (perfect foresight)",
+     "bill": 128.44138127812494,
+     "export_credit": 187.6283489062501,
+     "degradation": 88.53947025000002,
+     "terminal_adj": -0.7378197750001592,
+     "total": 28.614682846874704,
+     "import_kwh": 3.7197040624999977,
+     "export_kwh": 17.86936656250001,
+     "peak_import_kwh": 0.0,
+     "load_kwh": 34.955,
+     "pv_kwh": 50.10603,
+     "self_consumption": 0.6433689405746172,
+     "self_sufficiency": 0.8935859229723931,
+     "batt_throughput_kwh": 11.498632500000003,
+     "balance_residual": 4.440892098500626e-16
+    },
+    {
+     "name": "Rules v2 (forecast-aware discharge)",
+     "bill": 82.32773813999992,
+     "export_credit": 187.19589049788414,
+     "degradation": 102.55052692500001,
+     "terminal_adj": 45.37582336312475,
+     "total": 43.05819793024055,
+     "import_kwh": 2.3842379999999976,
+     "export_kwh": 17.828180047417536,
+     "peak_import_kwh": 0.0,
+     "load_kwh": 34.955,
+     "pv_kwh": 50.10603,
+     "self_consumption": 0.6441909277702197,
+     "self_sufficiency": 0.9317912172793592,
+     "batt_throughput_kwh": 13.318250250000002,
+     "balance_residual": 2.220446049250313e-16
+    }
+   ],
+   "milp_gap": 0.0,
+   "rule2_share_of_achievable": 0.9508135179312549,
+   "saving_rule_vs_baseline": 213.97595719630863,
+   "saving_milp_vs_baseline": 293.6480609281837,
+   "rule_share_of_achievable": 0.7286816623953115,
+   "appliances": [
+    {
+     "name": "Water pump",
+     "kind": "block",
+     "P": 0.75,
+     "energy_kwh": 0.75
+    },
+    {
+     "name": "Washing machine",
+     "kind": "block",
+     "P": 0.5,
+     "energy_kwh": 0.75
+    },
+    {
+     "name": "Dishwasher",
+     "kind": "block",
+     "P": 1.2,
+     "energy_kwh": 1.7999999999999998
+    },
+    {
+     "name": "EV charger",
+     "kind": "energy",
+     "P": 3.3,
+     "energy_kwh": 6.0
+    }
+   ],
+   "load_kwh_fixed": 25.655,
+   "load_kwh_shift": 9.299999999999999,
+   "pv_kwh": 50.10603,
+   "peak_load_kw": 6.31
+  },
+  "winter": {
+   "scenarios": [
+    {
+     "name": "Grid-tied PV only (no battery)",
+     "bill": 534.5685459599999,
+     "export_credit": 397.915098,
+     "degradation": 0.0,
+     "terminal_adj": 0.0,
+     "total": 136.65344795999994,
+     "import_kwh": 12.339731999999998,
+     "export_kwh": 37.896676,
+     "peak_import_kwh": 8.805,
+     "load_kwh": 16.13,
+     "pv_kwh": 41.686944,
+     "self_consumption": 0.09092218417353878,
+     "self_sufficiency": 0.2349825170489771,
+     "batt_throughput_kwh": 0.0,
+     "balance_residual": 4.440892098500626e-16
+    },
+    {
+     "name": "PV + battery, self-consumption",
+     "bill": 0.8198750000000111,
+     "export_credit": 296.11964878125,
+     "degradation": 94.8811864,
+     "terminal_adj": 116.97037500000012,
+     "total": -83.44821238124989,
+     "import_kwh": 0.017500000000000293,
+     "export_kwh": 28.2018713125,
+     "peak_import_kwh": 0.01750000000000007,
+     "load_kwh": 16.13,
+     "pv_kwh": 41.686944,
+     "self_consumption": 0.3234843189152939,
+     "self_sufficiency": 0.9989150650960942,
+     "batt_throughput_kwh": 12.322232,
+     "balance_residual": 4.440892098500626e-16
+    },
+    {
+     "name": "Rule-based EMS",
+     "bill": 67.65643535062499,
+     "export_credit": 228.46736128125002,
+     "degradation": 15.823500000000001,
+     "terminal_adj": -177.65685000000002,
+     "total": -322.6442759306251,
+     "import_kwh": 1.9593523124999996,
+     "export_kwh": 21.758796312500003,
+     "peak_import_kwh": 0.0,
+     "load_kwh": 16.129999999999995,
+     "pv_kwh": 41.686944,
+     "self_consumption": 0.4780429020534582,
+     "self_sufficiency": 0.8785274449783013,
+     "batt_throughput_kwh": 2.055,
+     "balance_residual": 4.440892098500626e-16
+    },
+    {
+     "name": "MILP optimum (perfect foresight)",
+     "bill": 20.718000000000064,
+     "export_credit": 206.84749883984375,
+     "degradation": 20.22616365,
+     "terminal_adj": -198.37485000000012,
+     "total": -364.27818518984384,
+     "import_kwh": 0.6000000000000019,
+     "export_kwh": 19.699761794270835,
+     "peak_import_kwh": 0.0,
+     "load_kwh": 16.129999999999995,
+     "pv_kwh": 41.686944,
+     "self_consumption": 0.5274356931927935,
+     "self_sufficiency": 0.9628022318660879,
+     "batt_throughput_kwh": 2.6267745,
+     "balance_residual": 4.440892098500626e-16
+    },
+    {
+     "name": "Rules v2 (forecast-aware discharge)",
+     "bill": 0.0,
+     "export_credit": 206.1440113666992,
+     "degradation": 30.91051280625,
+     "terminal_adj": -177.65685000000002,
+     "total": -352.8903485604492,
+     "import_kwh": 0.0,
+     "export_kwh": 19.632762987304687,
+     "peak_import_kwh": 0.0,
+     "load_kwh": 16.129999999999995,
+     "pv_kwh": 41.686944,
+     "self_consumption": 0.5290428824117045,
+     "self_sufficiency": 1.0,
+     "batt_throughput_kwh": 4.0143523125,
+     "balance_residual": 4.440892098500626e-16
+    }
+   ],
+   "milp_gap": 0.0,
+   "rule2_share_of_achievable": 0.9594493546557572,
+   "saving_rule_vs_baseline": 239.1960635493752,
+   "saving_milp_vs_baseline": 280.82997280859394,
+   "rule_share_of_achievable": 0.8517469170301303,
+   "appliances": [
+    {
+     "name": "Water pump",
+     "kind": "block",
+     "P": 0.75,
+     "energy_kwh": 0.75
+    },
+    {
+     "name": "Washing machine",
+     "kind": "block",
+     "P": 0.5,
+     "energy_kwh": 0.75
+    },
+    {
+     "name": "Dishwasher",
+     "kind": "block",
+     "P": 1.2,
+     "energy_kwh": 1.7999999999999998
+    },
+    {
+     "name": "EV charger",
+     "kind": "energy",
+     "P": 3.3,
+     "energy_kwh": 6.0
+    }
+   ],
+   "load_kwh_fixed": 6.83,
+   "load_kwh_shift": 9.299999999999999,
+   "pv_kwh": 41.686944,
+   "peak_load_kw": 5.07
+  },
+  "cloudy": {
+   "scenarios": [
+    {
+     "name": "Grid-tied PV only (no battery)",
+     "bill": 1105.1630155201904,
+     "export_credit": 69.38763542793652,
+     "degradation": 0.0,
+     "terminal_adj": 0.0,
+     "total": 1035.7753800922537,
+     "import_kwh": 26.563346231232046,
+     "export_kwh": 6.60834623123205,
+     "peak_import_kwh": 15.254112837317184,
+     "load_kwh": 34.955,
+     "pv_kwh": 15.000000000000002,
+     "self_consumption": 0.55944358458453,
+     "self_sufficiency": 0.24007019793357043,
+     "batt_throughput_kwh": 0.0,
+     "balance_residual": 1.1102230246251565e-16
+    },
+    {
+     "name": "PV + battery, self-consumption",
+     "bill": 701.517443166522,
+     "export_credit": 2.914335439641036e-16,
+     "degradation": 80.15893952761664,
+     "terminal_adj": 149.16959999999997,
+     "total": 930.8459826941386,
+     "import_kwh": 16.15309434452859,
+     "export_kwh": 2.7755575615628914e-17,
+     "peak_import_kwh": 11.668108396911508,
+     "load_kwh": 34.955,
+     "pv_kwh": 15.000000000000002,
+     "self_consumption": 1.0,
+     "self_sufficiency": 0.5378888758538524,
+     "batt_throughput_kwh": 10.41025188670346,
+     "balance_residual": 1.1102230246251565e-16
+    },
+    {
+     "name": "Rule-based EMS",
+     "bill": 580.9855364295818,
+     "export_credit": 0.0,
+     "degradation": 62.05259422174554,
+     "terminal_adj": 149.16959999999997,
+     "total": 792.2077306513272,
+     "import_kwh": 15.953055807374081,
+     "export_kwh": 0.0,
+     "peak_import_kwh": 2.4453343669606205,
+     "load_kwh": 34.955,
+     "pv_kwh": 15.000000000000002,
+     "self_consumption": 1.0,
+     "self_sufficiency": 0.5436116204441688,
+     "batt_throughput_kwh": 8.058778470356563,
+     "balance_residual": 0.0
+    },
+    {
+     "name": "MILP optimum (perfect foresight)",
+     "bill": 548.348481245409,
+     "export_credit": 2.914335439641036e-16,
+     "degradation": 55.47166884734232,
+     "terminal_adj": 149.16959999999997,
+     "total": 752.9897500927513,
+     "import_kwh": 15.880349876785662,
+     "export_kwh": 2.7755575615628914e-17,
+     "peak_import_kwh": 0.0,
+     "load_kwh": 34.955,
+     "pv_kwh": 15.000000000000002,
+     "self_consumption": 1.0,
+     "self_sufficiency": 0.5456916070151434,
+     "batt_throughput_kwh": 7.204112837317185,
+     "balance_residual": 8.881784197001252e-16
+    },
+    {
+     "name": "Rules v2 (forecast-aware discharge)",
+     "bill": 580.9855364295818,
+     "export_credit": 0.0,
+     "degradation": 62.05259422174554,
+     "terminal_adj": 149.16959999999997,
+     "total": 792.2077306513272,
+     "import_kwh": 15.953055807374081,
+     "export_kwh": 0.0,
+     "peak_import_kwh": 2.4453343669606205,
+     "load_kwh": 34.955,
+     "pv_kwh": 15.000000000000002,
+     "self_consumption": 1.0,
+     "self_sufficiency": 0.5436116204441688,
+     "batt_throughput_kwh": 8.058778470356563,
+     "balance_residual": 0.0
+    }
+   ],
+   "milp_gap": 0.0,
+   "rule2_share_of_achievable": 0.7794961695468295,
+   "saving_rule_vs_baseline": 138.63825204281136,
+   "saving_milp_vs_baseline": 177.85623260138732,
+   "rule_share_of_achievable": 0.7794961695468295,
+   "appliances": [
+    {
+     "name": "Water pump",
+     "kind": "block",
+     "P": 0.75,
+     "energy_kwh": 0.75
+    },
+    {
+     "name": "Washing machine",
+     "kind": "block",
+     "P": 0.5,
+     "energy_kwh": 0.75
+    },
+    {
+     "name": "Dishwasher",
+     "kind": "block",
+     "P": 1.2,
+     "energy_kwh": 1.7999999999999998
+    },
+    {
+     "name": "EV charger",
+     "kind": "energy",
+     "P": 3.3,
+     "energy_kwh": 6.0
+    }
+   ],
+   "load_kwh_fixed": 25.655,
+   "load_kwh_shift": 9.299999999999999,
+   "pv_kwh": 15.000000000000002,
+   "peak_load_kw": 6.31
+  }
+ }
+}

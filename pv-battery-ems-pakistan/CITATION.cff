@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite the archived release and the article."
+title: "PV-battery home under a Pakistani time-of-use tariff: converter model and energy management (code and data)"
+authors:
+  - family-names: "Mujahid"
+    given-names: "Muhammad Umer"
+    affiliation: "Independent Researcher, Islamabad, Pakistan"
+version: "1.0.0"
+date-released: "2026-11-16"
+license: "MIT"
+keywords:
+  - home energy management
+  - time-of-use tariff
+  - rule-based control
+  - mixed-integer linear programming
+  - photovoltaic
+  - battery storage
+  - grid-following inverter

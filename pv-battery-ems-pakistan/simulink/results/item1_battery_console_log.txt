@@ -1,0 +1,32 @@
+Original: Amplitude=400  Rbat=0.1  Gain=1/400  Gain_ff=1/(1.5*326.6)  Stop=0.6
+ 1/14 SOC 10 ramp 0.00 FF 1 g1/Voc 1 | Voc 371 V R 0.200 | Vdc dev 2.8 V (698..703) | Ipk 17.3 A | Pbat 4.95 kW (-0.9 %) | settle 397 ms | extra loss 0.043 kW | 19 s
+ 2/14 SOC 20 ramp 0.00 FF 1 g1/Voc 1 | Voc 382 V R 0.140 | Vdc dev 3.0 V (698..703) | Ipk 16.6 A | Pbat 4.97 kW (-0.5 %) | settle 396 ms | extra loss 0.033 kW | 17 s
+ 3/14 SOC 50 ramp 0.00 FF 1 g1/Voc 1 | Voc 400 V R 0.100 | Vdc dev 2.7 V (698..703) | Ipk 16.8 A | Pbat 4.98 kW (-0.3 %) | settle 399 ms | extra loss 0.038 kW | 17 s
+ 4/14 SOC 80 ramp 0.00 FF 1 g1/Voc 1 | Voc 430 V R 0.090 | Vdc dev 3.2 V (698..703) | Ipk 15.8 A | Pbat 4.99 kW (-0.2 %) | settle 400 ms | extra loss 0.035 kW | 18 s
+ 5/14 SOC 95 ramp 0.00 FF 1 g1/Voc 1 | Voc 446 V R 0.098 | Vdc dev 2.4 V (698..702) | Ipk 14.4 A | Pbat 4.99 kW (-0.2 %) | settle 400 ms | extra loss 0.041 kW | 17 s
+ 6/14 SOC 10 ramp 0.00 FF 1 g1/Voc 0 | Voc 371 V R 0.200 | Vdc dev 4.4 V (697..704) | Ipk 15.9 A | Pbat 4.60 kW (-8.0 %) | settle 400 ms | extra loss 0.041 kW | 16 s
+ 7/14 SOC 95 ramp 0.00 FF 1 g1/Voc 0 | Voc 446 V R 0.098 | Vdc dev 7.2 V (693..704) | Ipk 16.2 A | Pbat 5.57 kW (11.3 %) | settle 400 ms | extra loss 0.041 kW | 16 s
+ 8/14 SOC 10 ramp 0.00 FF 0 g1/Voc 1 | Voc 371 V R 0.200 | Vdc dev 45.7 V (654..723) | Ipk 17.3 A | Pbat 4.95 kW (-0.9 %) | settle 398 ms | extra loss 0.032 kW | 16 s
+ 9/14 SOC 50 ramp 0.00 FF 0 g1/Voc 1 | Voc 400 V R 0.100 | Vdc dev 45.9 V (654..723) | Ipk 16.5 A | Pbat 4.98 kW (-0.3 %) | settle 399 ms | extra loss 0.046 kW | 16 s
+10/14 SOC 95 ramp 0.00 FF 0 g1/Voc 1 | Voc 446 V R 0.098 | Vdc dev 45.8 V (654..724) | Ipk 14.9 A | Pbat 4.99 kW (-0.2 %) | settle 399 ms | extra loss 0.037 kW | 16 s
+11/14 SOC 50 ramp 0.05 FF 1 g1/Voc 1 | Voc 400 V R 0.100 | Vdc dev 1.6 V (698..702) | Ipk 14.7 A | Pbat 4.98 kW (-0.3 %) | settle 400 ms | extra loss 0.048 kW | 16 s
+12/14 SOC 50 ramp 0.20 FF 1 g1/Voc 1 | Voc 400 V R 0.100 | Vdc dev 1.6 V (698..702) | Ipk 14.7 A | Pbat 4.98 kW (-0.3 %) | settle 398 ms | extra loss 0.040 kW | 16 s
+13/14 SOC 50 ramp 0.05 FF 0 g1/Voc 1 | Voc 400 V R 0.100 | Vdc dev 22.1 V (678..718) | Ipk 14.7 A | Pbat 4.98 kW (-0.3 %) | settle 400 ms | extra loss 0.046 kW | 16 s
+14/14 SOC 50 ramp 0.20 FF 0 g1/Voc 1 | Voc 400 V R 0.100 | Vdc dev 6.7 V (693..706) | Ipk 14.7 A | Pbat 4.98 kW (-0.3 %) | settle 398 ms | extra loss 0.031 kW | 16 s
+    SOC    ramp_s    FF    gain_1overVoc    Voc_V     Vdc_dev_max    Ibat_peak_A    Pbat_D    track_err_D_pct    settle_ms    extra_loss_D_kW
+    ___    ______    __    _____________    ______    ___________    ___________    ______    _______________    _________    _______________
+
+    10         0     1           1          370.97      2.7957         17.282       4.9535       -0.93069         396.93         0.043142    
+    20         0     1           1          381.72      2.9956          16.64        4.975        -0.5006         395.99         0.032562    
+    50         0     1           1             400      2.6656         16.816       4.9827       -0.34584         398.65         0.038326    
+    80         0     1           1          430.11      3.1743         15.835       4.9881       -0.23838         399.91         0.034964    
+    95         0     1           1          446.24      2.4141         14.428       4.9894       -0.21231         399.79         0.041431    
+    10         0     1           0          370.97      4.4139         15.874       4.5976        -8.0482         399.94         0.041281    
+    95         0     1           0          446.24      7.2425         16.239       5.5652         11.303         399.57         0.041029    
+    10         0     0           1          370.97      45.706         17.271       4.9541       -0.91824         398.04         0.031654    
+    50         0     0           1             400      45.871         16.502       4.9843       -0.31367         399.13          0.04563    
+    95         0     0           1          446.24      45.788         14.894         4.99       -0.19948         399.12         0.036686    
+    50      0.05     1           1             400      1.6469         14.699       4.9841       -0.31804          399.6         0.048304    
+    50       0.2     1           1             400      1.5958         14.696       4.9831       -0.33829         397.64         0.040143    
+    50      0.05     0           1             400      22.072         14.683       4.9838       -0.32471         399.64         0.046132    
+    50       0.2     0           1             400      6.6827         14.664       4.9841        -0.3181         397.64         0.030608    

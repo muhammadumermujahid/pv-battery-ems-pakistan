@@ -1,0 +1,35 @@
+Solver FixedStep: 5e-6 | solver: FixedStepDiscrete
+Parameters holding the step (11):
+   grid_inv_test_battery/PI_d : SampleTime = 5e-6
+   grid_inv_test_battery/PI_q : SampleTime = 5e-6
+   grid_inv_test_battery/PWM Generator : Ts = 5e-6
+   grid_inv_test_battery/PWM Generator
+(2-Level) : Ts = 5e-6
+   grid_inv_test_battery/duty_ws : SampleTime = 5e-6
+   grid_inv_test_battery/idio_ws : SampleTime = 5e-6
+   grid_inv_test_battery/ipv_ws : SampleTime = 5e-6
+   grid_inv_test_battery/powergui : SampleTime = 5e-6
+   grid_inv_test_battery/ppv_ws : SampleTime = 5e-6
+   grid_inv_test_battery/vdc_ws : SampleTime = 5e-6
+   grid_inv_test_battery/vpv_ws : SampleTime = 5e-6
+Tracker chart sample time: -1
+=== A: PV-voltage change per tracker step ===
+step 5e-06 s: logged dt of vpv 5e-06 s
+   75 steps | |dVpv| < 1 V: 63 | 1-6 V: 0 | 6-12 V: 0 | > 12 V: 12 | median of |dV| > 1 V: 17.4 V | max 17.6 V
+   PV 9.752 kW (99.1 % of available), Vpv 367.4 V, p-p(1 ms) 23.9 V | 68 s
+step 1e-06 s: logged dt of vpv 1e-06 s
+   75 steps | |dVpv| < 1 V: 34 | 1-6 V: 41 | 6-12 V: 0 | > 12 V: 0 | median of |dV| > 1 V: 3.5 V | max 3.6 V
+   PV 9.776 kW (99.3 % of available), Vpv 371.4 V, p-p(1 ms) 15.0 V | 189 s
+=== B: Table II run at 1 us (series 8 ohm) ===
+   0.3-0.5 s | PV 9.782 kW | AC 9.476 kW | PV-to-AC 96.88 % | THD(rect a) 0.74 % | I1 19.34 A pk
+   0.9-1.1 s | PV 5.892 kW | AC 5.614 kW | PV-to-AC 95.28 % | THD(rect a) 1.25 % | I1 11.45 A pk
+   (5 us reference: 9.73 / 5.87 kW, 96.74 / 94.98 %, THD 1.80 / 3.13 %) | 247 s
+=== C: input circuits at 1 us ===
+pure C        G  300 | PV 2.933 kW = 101.2 % of available | Vpv 364.9 V, p-p(1ms) 12.7 V | largest ripple 150 Hz, 0.026 kW | 59 s
+pure C        G 1000 | PV 9.830 kW = 99.9 % of available | Vpv 372.9 V, p-p(1ms) 13.2 V | largest ripple 158 Hz, 0.012 kW | 65 s
+series 8 ohm  G  300 | PV 2.897 kW = 100.0 % of available | Vpv 363.5 V, p-p(1ms) 12.3 V | largest ripple   8 Hz, 0.009 kW | 141 s
+series 8 ohm  G 1000 | PV 9.776 kW = 99.3 % of available | Vpv 371.4 V, p-p(1ms) 15.0 V | largest ripple   6 Hz, 0.017 kW | 185 s
+parallel R-C  G  300 | PV 2.512 kW = 86.7 % of available | Vpv 303.0 V, p-p(1ms) 55.0 V | largest ripple   6 Hz, 0.050 kW | 55 s
+parallel R-C  G 1000 | PV 9.688 kW = 98.4 % of available | Vpv 358.8 V, p-p(1ms) 5.5 V | largest ripple  50 Hz, 0.059 kW | 60 s
+Model closed without saving; the saved model is unchanged.
+ALL DONE

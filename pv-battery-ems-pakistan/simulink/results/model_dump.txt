@@ -1,0 +1,2113 @@
+=== MODEL SETTINGS ===
+Solver = FixedStepDiscrete
+SolverType = Fixed-step
+FixedStep = 5e-6
+StartTime = 0.0
+StopTime = 0.6
+SimulationMode = normal
+
+--- model workspace variables (0) ---
+
+--- base workspace numeric variables ---
+A = [19.3206 0.0123607 0.0113054 0.0378689 0.0724902 0.00445378 0.0716198 0.0151575 0.0131042 0.00988817 0.0324813 0.0104646 0.0343346]
+Cc = 0.0001
+Cd = 0.0004
+G = 1000
+Gs = [300 400 500 600 700 800 900 1000]
+L = 0.007
+Lf = 0.0045
+Lg = 0.0252089
+P = 1.82183
+Pav = [2.898 3.907 4.913 5.914 6.908 7.895 8.872 9.841]
+Pb = 0.000981335
+Pg = 9.47297
+Ppv = 9.77745
+R0 = 8.3666
+Rd = 5.12348
+T = [0.2 0.4;0.5 0.7;0.82 1]
+TS = 1e-06
+V = [1 1;1 0.5;0 0.5;1 2]
+W = [0.3 0.4;0.5 0.7;0.9 1]
+Zb = 16
+a = 29.7447
+ans = 12
+c = 3
+c5 = 0.0233614
+d = [564.118;699.118;695.118;526.118;559.118;537.118;708.118;703.118;530.118;618.118;518.118]
+dtp = 1e-06
+errObj = []
+f0 = 50
+fac = [1 1 1.5]
+ff = 0
+fid = 3
+fs = 200000
+fsx = 1e+06
+g = 1000
+i = 59
+i1 = 5.56551
+i11 = 19.3442
+i12 = 9.15178
+j = 11
+k = 90
+kp = 99.0295
+n = 4
+n2 = 200001
+n5 = 11
+nlit = 11
+nn = 4
+nw = 1000
+pac = 5.61426
+pb = 0
+pd = [0.0057573 0.0015788]
+pdc = 5.64479
+pk = -23.1167
+ppv = 5.89213
+q = 3
+r = 4
+rtm = 68.297
+s0 = 6.60197
+scr = 2
+st = 0.8
+th = 2.04588
+th1 = 0.743988
+th2 = 1.33445
+th20 = 9.56628
+tk = 16.093
+ts = 1e-06
+w = [0.4 0.6]
+
+=== BLOCKS (90) ===
+
+[grid_inv_test_battery/Ammeter]
+  BlockType = SubSystem | MaskType = Current Measurement | Library = spsCurrentMeasurementLib/Current Measurement
+  PhasorSimulation = off
+  OutputType = Complex
+  PSBequivalent = 0
+  port 1 ->  |  grid_inv_test_battery/ipv_ws  |  grid_inv_test_battery/P=VxI  |  grid_inv_test_battery/MPPT Function
+  port LConn1 ->  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/BD_B
+  port RConn1 ->  |  grid_inv_test_battery/Inductor
+
+[grid_inv_test_battery/BD_A]
+  BlockType = SubSystem | MaskType = Diode | Library = spsDiodeLib/Diode
+  Ron = 0.001 
+  Lon = 0
+  Vf = 0.8
+  IC = 0
+  UseSnubber = 0
+  Rs = 500
+  Cs = 250e-9
+  Measurements = on
+  port 1 ->
+  port LConn1 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)
+  port RConn1 ->  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/BD_B
+
+[grid_inv_test_battery/BD_B]
+  BlockType = SubSystem | MaskType = Diode | Library = spsDiodeLib/Diode
+  Ron = 0.001 
+  Lon = 0
+  Vf = 0.8
+  IC = 0
+  UseSnubber = 0
+  Rs = 500
+  Cs = 250e-9
+  Measurements = on
+  port 1 ->
+  port LConn1 ->  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A  |  grid_inv_test_battery/PV_B
+  port RConn1 ->  |  grid_inv_test_battery/Ammeter  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Cin
+
+[grid_inv_test_battery/Battery]
+  BlockType = SubSystem | MaskType = DC Voltage Source | Library = spsDCVoltageSourceLib/DC Voltage Source
+  Amplitude = 400
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+  port RConn1 ->  |  grid_inv_test_battery/Rbat  |  grid_inv_test_battery/V_bat
+
+[grid_inv_test_battery/Bias]
+  BlockType = Bias | MaskType =  | Library = 
+  Bias = -1
+  SaturateOnIntegerOverflow = off
+  port 1 ->  |  grid_inv_test_battery/Gain1
+  port 1 ->  |  grid_inv_test_battery/PWM Generator (2-Level)
+
+[grid_inv_test_battery/Bridge]
+  BlockType = SubSystem | MaskType = Universal Bridge | Library = spsUniversalBridgeLib/Universal Bridge
+  Arms = 3
+  SnubberResistance = 1e5
+  SnubberCapacitance = inf
+  Device = IGBT / Diodes
+  Ron = 1e-3
+  Lon = 0
+  ForwardVoltages = [  0  0  ]
+  ForwardVoltage = 0
+  GTOparameters = [ 10e-6 , 20e-6 ]
+  IGBTparameters = [ 1e-6 , 2e-6 ]
+  Measurements = None
+  Measurements_2 = None
+  converterType = Rectifier
+  port 1 ->  |  grid_inv_test_battery/PWM
+  port LConn1 ->  |  grid_inv_test_battery/Series RLC Branch2
+  port LConn2 ->  |  grid_inv_test_battery/Series RLC Branch
+  port LConn3 ->  |  grid_inv_test_battery/Series RLC Branch1
+  port RConn1 ->  |  grid_inv_test_battery/Diode  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/Vdc_meas
+  port RConn2 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/Cdc]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = C
+  Resistance = 1
+  Inductance = 1e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 2e-3
+  Setx0 = on
+  InitialVoltage = 700
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/Diode  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/Vdc_meas
+  port RConn1 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/Cin]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = RC
+  Resistance = 8
+  Inductance = 1e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 100e-6
+  Setx0 = on
+  InitialVoltage = 380
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Ammeter  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/BD_B
+  port RConn1 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/Demux_i]
+  BlockType = Demux | MaskType =  | Library = 
+  Outputs = 3
+  DisplayOption = bar
+  port 1 ->  |  grid_inv_test_battery/Ineg
+  port 1 ->  |  grid_inv_test_battery/wL_id  |  grid_inv_test_battery/Sum_id
+  port 2 ->  |  grid_inv_test_battery/wL_iq  |  grid_inv_test_battery/Sum_iq
+  port 3 ->  |  grid_inv_test_battery/Term_i
+
+[grid_inv_test_battery/Demux_v]
+  BlockType = Demux | MaskType =  | Library = 
+  Outputs = 3
+  DisplayOption = bar
+  port 1 ->  |  grid_inv_test_battery/T_volt
+  port 1 ->  |  grid_inv_test_battery/Sum_vd
+  port 2 ->  |  grid_inv_test_battery/Sum_vq
+  port 3 ->  |  grid_inv_test_battery/Term_v
+
+[grid_inv_test_battery/Diode]
+  BlockType = SubSystem | MaskType = Diode | Library = spsDiodeLib/Diode
+  Ron = 0.001 
+  Lon = 0
+  Vf = 0.8
+  IC = 0
+  UseSnubber = 0
+  Rs = 500
+  Cs = 250e-9
+  Measurements = on
+  port 1 ->  |  grid_inv_test_battery/idio_ws
+  port LConn1 ->  |  grid_inv_test_battery/Inductor  |  grid_inv_test_battery/IGBT
+  port RConn1 ->  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/Vdc_meas
+
+[grid_inv_test_battery/Divide]
+  BlockType = Product | MaskType =  | Library = 
+  Inputs = */
+  Multiplication = Element-wise(.*)
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Vsum
+  port 2 ->  |  grid_inv_test_battery/Saturation2
+  port 1 ->  |  grid_inv_test_battery/Saturation1
+
+[grid_inv_test_battery/Fault_PCC]
+  BlockType = SubSystem | MaskType = Three-Phase Fault | Library = spsThreePhaseFaultLib/Three-Phase Fault
+  InitialStates = 0
+  FaultA = on
+  FaultB = on
+  FaultC = on
+  GroundFault = off
+  SwitchTimes = [10 11]
+  External = off
+  SwitchStatus = NaN
+  FaultResistance = 0.001
+  GroundResistance = 0.01
+  SnubberResistance = 1e6
+  SnubberCapacitance = inf
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement  |  grid_inv_test_battery/Three-Phase Source
+  port LConn2 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement  |  grid_inv_test_battery/Three-Phase Source
+  port LConn3 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement  |  grid_inv_test_battery/Three-Phase Source
+
+[grid_inv_test_battery/G_norm]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = 1/350
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/dq2abc
+  port 1 ->  |  grid_inv_test_battery/Saturation
+
+[grid_inv_test_battery/G_pll]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = 1/326.6
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement
+  port 1 ->  |  grid_inv_test_battery/PLL
+
+[grid_inv_test_battery/Gain]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = 1/400
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Sum
+  port 1 ->  |  grid_inv_test_battery/Scope  |  grid_inv_test_battery/err
+
+[grid_inv_test_battery/Gain1]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = 2
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Saturation1
+  port 1 ->  |  grid_inv_test_battery/Bias
+
+[grid_inv_test_battery/Gain_ff]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = 1/(1.5*326.6)
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Sum
+  port 1 ->  |  grid_inv_test_battery/Sum_id
+
+[grid_inv_test_battery/HB]
+  BlockType = SubSystem | MaskType = Universal Bridge | Library = spsUniversalBridgeLib/Universal Bridge
+  Arms = 1
+  SnubberResistance = 1e5
+  SnubberCapacitance = inf
+  Device = IGBT / Diodes
+  Ron = 1e-3
+  Lon = 0
+  ForwardVoltages = [  0  0  ]
+  ForwardVoltage = 0
+  GTOparameters = [ 10e-6 , 20e-6 ]
+  IGBTparameters = [ 1e-6 , 2e-6 ]
+  Measurements = None
+  Measurements_2 = None
+  converterType = Rectifier
+  port 1 ->  |  grid_inv_test_battery/PWM Generator (2-Level)
+  port LConn1 ->  |  grid_inv_test_battery/Lb
+  port RConn1 ->  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/Diode  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/Vdc_meas
+  port RConn2 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/IGBT]
+  BlockType = SubSystem | MaskType = IGBT | Library = spsIGBTLib/IGBT
+  Ron = 0.001
+  Lon = 0
+  Vf = 1
+  Tf = 1e-6
+  Tt = 2e-6
+  IC = 0
+  Rs = 1e5
+  Cs = 1e-6
+  Measurements = off
+  port 1 ->  |  grid_inv_test_battery/PWM Generator
+  port LConn1 ->  |  grid_inv_test_battery/Diode  |  grid_inv_test_battery/Inductor
+  port RConn1 ->  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/Inductor]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = L
+  Resistance = 0.02
+  Inductance = 7e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 1e-6
+  Setx0 = off
+  InitialVoltage = 0
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Ammeter
+  port RConn1 ->  |  grid_inv_test_battery/Diode  |  grid_inv_test_battery/IGBT
+
+[grid_inv_test_battery/Ineg]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = -1
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/T_cur
+  port 1 ->  |  grid_inv_test_battery/Demux_i
+
+[grid_inv_test_battery/Irradiance (1000)]
+  BlockType = Step | MaskType =  | Library = 
+  Time = 0.25
+  Before = 300
+  After = 300
+  OutDataTypeStr = double
+  SampleTime = 0
+  VectorParams1D = on
+  ZeroCross = on
+  port 1 ->  |  grid_inv_test_battery/Mul_B  |  grid_inv_test_battery/PV-615W (8x2)
+
+[grid_inv_test_battery/Lb]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = RL
+  Resistance = 0.02
+  Inductance = 10e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 1e-6
+  Setx0 = off
+  InitialVoltage = 0
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/i_bat
+  port RConn1 ->  |  grid_inv_test_battery/HB
+
+[grid_inv_test_battery/MPPT Function]
+  BlockType = SubSystem | MaskType =  | Library = 
+  ShowPortLabels = FromPortIcon
+  BlockChoice = 
+  TemplateBlock = 
+  MemberBlocks = 
+  Permissions = ReadWrite
+  ErrorFcn = Stateflow.Translate.translate
+  PermitHierarchicalResolution = ExplicitOnly
+  TreatAsAtomicUnit = on
+  ShowSubsystemReinitializePorts = off
+  MinAlgLoopOccurrences = off
+  ScheduleAs = Sample time
+  PartitionName = 
+  SystemSampleTime = -1
+  SetExecutionDomain = off
+  ExecutionDomainType = Deduce
+  RTWSystemCode = Auto
+  RTWFcnNameOpts = Auto
+  RTWFcnName = 
+  RTWFileNameOpts = Auto
+  RTWFileName = 
+  FunctionInterfaceSpec = void_void
+  FunctionWithSeparateData = off
+  RTWMemSecFuncInitTerm = Inherit from model
+  RTWMemSecFuncExecute = Inherit from model
+  RTWMemSecDataConstants = Inherit from model
+  RTWMemSecDataInternal = Inherit from model
+  RTWMemSecDataParameters = Inherit from model
+  IsSubsystemVirtual = off
+  Variant = off
+  VariantChoicesSpecifier = 
+  VariantChoicesEnumeration = 
+  VariantControlVariable = 
+  VariantChoices = []
+  VariantControlMode = expression
+  VariantControl = 
+  LabelModeActiveChoice = 
+  VariantActivationTime = update diagram
+  AllowZeroVariantControls = off
+  PropagateVariantConditions = off
+  CompiledActiveChoiceControl = 
+  CompiledActiveChoiceBlock = 
+  TreatAsGroupedWhenPropagatingVariantConditions = on
+  ReferencedSubsystem = 
+  Latency = 0
+  AutoFrameSizeCalculation = off
+  CompiledVariantActivationTime = update diagram
+  port 1 ->  |  grid_inv_test_battery/Voltmeter
+  port 2 ->  |  grid_inv_test_battery/Ammeter
+  port 3 ->  |  grid_inv_test_battery/Vdc_meas
+  port 1 ->  |  grid_inv_test_battery/duty_ws  |  grid_inv_test_battery/PWM Generator
+
+[grid_inv_test_battery/Mul_B]
+  BlockType = Product | MaskType =  | Library = 
+  Inputs = 2
+  Multiplication = Element-wise(.*)
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Irradiance (1000)
+  port 2 ->  |  grid_inv_test_battery/Shade_factor
+  port 1 ->  |  grid_inv_test_battery/PV_B
+
+[grid_inv_test_battery/Mux]
+  BlockType = Mux | MaskType =  | Library = 
+  Inputs = 3
+  DisplayOption = bar
+  port 1 ->  |  grid_inv_test_battery/Sum_vd
+  port 2 ->  |  grid_inv_test_battery/Sum_vq
+  port 3 ->  |  grid_inv_test_battery/Zero
+  port 1 ->  |  grid_inv_test_battery/dq2abc
+
+[grid_inv_test_battery/P1]
+  BlockType = Step | MaskType =  | Library = 
+  Time = 0.4
+  Before = 0
+  After = 5000
+  OutDataTypeStr = double
+  SampleTime = 0
+  VectorParams1D = on
+  ZeroCross = on
+  port 1 ->  |  grid_inv_test_battery/Sum
+
+[grid_inv_test_battery/P2]
+  BlockType = Step | MaskType =  | Library = 
+  Time = 0.8
+  Before = 0
+  After = -10000
+  OutDataTypeStr = double
+  SampleTime = 0
+  VectorParams1D = on
+  ZeroCross = on
+  port 1 ->  |  grid_inv_test_battery/Sum
+
+[grid_inv_test_battery/P=VxI]
+  BlockType = Product | MaskType =  | Library = 
+  Inputs = 2
+  Multiplication = Element-wise(.*)
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Voltmeter
+  port 2 ->  |  grid_inv_test_battery/Ammeter
+  port 1 ->  |  grid_inv_test_battery/ppv_ws
+
+[grid_inv_test_battery/PI]
+  BlockType = SubSystem | MaskType = PID 1dof | Library = slpidlib/PID Controller
+  Controller = PI
+  Form = Parallel
+  TimeDomain = Discrete-time
+  UseExternalTs = off
+  SampleTime = 5e-5
+  IntegratorMethod = Forward Euler
+  FilterMethod = Forward Euler
+  ControllerParametersSource = internal
+  P = 19
+  I = 3600
+  UseKiTs = off
+  D = 0
+  N = 100
+  UseFilter = on
+  TunerSelectOption = Transfer Function Based (PID Tuner App)
+  ZeroCross = on
+  InitialConditionSource = internal
+  InitialConditionForIntegrator = 0
+  InitialConditionForFilter = 0
+  DifferentiatorICPrevScaledInput = 0
+  ExternalReset = none
+  IgnoreLimit = off
+  TrackingMode = off
+  Kt = 1
+  LimitOutput = off
+  SatLimitsSource = internal
+  UpperSaturationLimit = inf
+  LowerSaturationLimit = -inf
+  LinearizeAsGain = on
+  AntiWindupMode = none
+  Kb = 1
+  LimitIntegrator = off
+  UpperIntegratorSaturationLimit = inf
+  LowerIntegratorSaturationLimit = -inf
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  LockScale = off
+  PGainOutDataTypeStr = Inherit: Inherit via internal rule
+  PProdOutDataTypeStr = Inherit: Inherit via internal rule
+  POutMin = []
+  POutMax = []
+  IGainOutDataTypeStr = Inherit: Inherit via internal rule
+  IProdOutDataTypeStr = Inherit: Inherit via internal rule
+  IOutMin = []
+  IOutMax = []
+  DGainOutDataTypeStr = Inherit: Inherit via internal rule
+  DProdOutDataTypeStr = Inherit: Inherit via internal rule
+  DOutMin = []
+  DOutMax = []
+  NGainOutDataTypeStr = Inherit: Inherit via internal rule
+  NProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NOutMin = []
+  NOutMax = []
+  SumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumOutMin = []
+  SumOutMax = []
+  SaturationOutDataTypeStr = Inherit: Same as input
+  SaturationOutMin = []
+  SaturationOutMax = []
+  PParamDataTypeStr = Inherit: Inherit via internal rule
+  PParamMin = []
+  PParamMax = []
+  IParamDataTypeStr = Inherit: Inherit via internal rule
+  IParamMin = []
+  IParamMax = []
+  DParamDataTypeStr = Inherit: Inherit via internal rule
+  DParamMin = []
+  DParamMax = []
+  NParamDataTypeStr = Inherit: Inherit via internal rule
+  NParamMin = []
+  NParamMax = []
+  KbParamDataTypeStr = Inherit: Inherit via internal rule
+  KbParamMin = []
+  KbParamMax = []
+  KtParamDataTypeStr = Inherit: Inherit via internal rule
+  KtParamMin = []
+  KtParamMax = []
+  KbOutDataTypeStr = Inherit: Inherit via internal rule
+  KbOutMin = []
+  KbOutMax = []
+  KtOutDataTypeStr = Inherit: Inherit via internal rule
+  KtOutMin = []
+  KtOutMax = []
+  IntegratorOutDataTypeStr = Inherit: Inherit via internal rule
+  IntegratorOutMin = []
+  IntegratorOutMax = []
+  FilterOutDataTypeStr = Inherit: Inherit via internal rule
+  FilterOutMin = []
+  FilterOutMax = []
+  SumI1OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI1OutMin = []
+  SumI1OutMax = []
+  SumI2OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI2OutMin = []
+  SumI2OutMax = []
+  SumI3OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI3OutMin = []
+  SumI3OutMax = []
+  SumI4OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI4OutMin = []
+  SumI4OutMax = []
+  SumDOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDOutMin = []
+  SumDOutMax = []
+  SumAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI1AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI2AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI3AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI4AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumDAccumDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutMin = []
+  DifferentiatorOutMax = []
+  FilterDiffNumProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefMin = []
+  FilterDiffOutCoefMax = []
+  ReciprocalOutDataTypeStr = Inherit: Inherit via internal rule
+  ReciprocalOutMin = []
+  ReciprocalOutMax = []
+  SumDenOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDenOutMin = []
+  SumDenOutMax = []
+  SumNumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumNumOutMin = []
+  SumNumOutMax = []
+  SumDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutMin = []
+  DivideOutMax = []
+  UdiffTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UdiffTsProdOutMin = []
+  UdiffTsProdOutMax = []
+  NTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NTsProdOutMin = []
+  NTsProdOutMax = []
+  UintegralTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UintegralTsProdOutMin = []
+  UintegralTsProdOutMax = []
+  UngainTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UngainTsProdOutMin = []
+  UngainTsProdOutMax = []
+  ClampingZeroOutDataTypeStr = Inherit: Inherit via back propagation
+  ClampingZeroOutMin = []
+  ClampingZeroOutMax = []
+  FilterDenConstantOutDataTypeStr = Inherit: Inherit via back propagation
+  FilterDenConstantOutMin = []
+  FilterDenConstantOutMax = []
+  PCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  PCopyOutMin = []
+  PCopyOutMax = []
+  NCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  NCopyOutMin = []
+  NCopyOutMax = []
+  IntegratorContinuousStateAttributes = ''
+  IntegratorStateIdentifier = 
+  IntegratorStateMustResolveToSignalObject = off
+  FilterContinuousStateAttributes = ''
+  FilterStateIdentifier = 
+  FilterStateMustResolveToSignalObject = off
+  port 1 ->  |  grid_inv_test_battery/err
+  port 1 ->  |  grid_inv_test_battery/Scope  |  grid_inv_test_battery/Vsum
+
+[grid_inv_test_battery/PI_d]
+  BlockType = SubSystem | MaskType = PID 1dof | Library = slpidlib/PID Controller
+  Controller = PI
+  Form = Parallel
+  TimeDomain = Discrete-time
+  UseExternalTs = off
+  SampleTime = 5e-6
+  IntegratorMethod = Forward Euler
+  FilterMethod = Forward Euler
+  ControllerParametersSource = internal
+  P = 10
+  I = 111
+  UseKiTs = off
+  D = 0
+  N = 100
+  UseFilter = on
+  TunerSelectOption = Transfer Function Based (PID Tuner App)
+  ZeroCross = on
+  InitialConditionSource = internal
+  InitialConditionForIntegrator = 0
+  InitialConditionForFilter = 0
+  DifferentiatorICPrevScaledInput = 0
+  ExternalReset = none
+  IgnoreLimit = off
+  TrackingMode = off
+  Kt = 1
+  LimitOutput = on
+  SatLimitsSource = internal
+  UpperSaturationLimit = +350
+  LowerSaturationLimit = -350
+  LinearizeAsGain = on
+  AntiWindupMode = clamping
+  Kb = 1
+  LimitIntegrator = off
+  UpperIntegratorSaturationLimit = inf
+  LowerIntegratorSaturationLimit = -inf
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  LockScale = off
+  PGainOutDataTypeStr = Inherit: Inherit via internal rule
+  PProdOutDataTypeStr = Inherit: Inherit via internal rule
+  POutMin = []
+  POutMax = []
+  IGainOutDataTypeStr = Inherit: Inherit via internal rule
+  IProdOutDataTypeStr = Inherit: Inherit via internal rule
+  IOutMin = []
+  IOutMax = []
+  DGainOutDataTypeStr = Inherit: Inherit via internal rule
+  DProdOutDataTypeStr = Inherit: Inherit via internal rule
+  DOutMin = []
+  DOutMax = []
+  NGainOutDataTypeStr = Inherit: Inherit via internal rule
+  NProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NOutMin = []
+  NOutMax = []
+  SumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumOutMin = []
+  SumOutMax = []
+  SaturationOutDataTypeStr = Inherit: Same as input
+  SaturationOutMin = []
+  SaturationOutMax = []
+  PParamDataTypeStr = Inherit: Inherit via internal rule
+  PParamMin = []
+  PParamMax = []
+  IParamDataTypeStr = Inherit: Inherit via internal rule
+  IParamMin = []
+  IParamMax = []
+  DParamDataTypeStr = Inherit: Inherit via internal rule
+  DParamMin = []
+  DParamMax = []
+  NParamDataTypeStr = Inherit: Inherit via internal rule
+  NParamMin = []
+  NParamMax = []
+  KbParamDataTypeStr = Inherit: Inherit via internal rule
+  KbParamMin = []
+  KbParamMax = []
+  KtParamDataTypeStr = Inherit: Inherit via internal rule
+  KtParamMin = []
+  KtParamMax = []
+  KbOutDataTypeStr = Inherit: Inherit via internal rule
+  KbOutMin = []
+  KbOutMax = []
+  KtOutDataTypeStr = Inherit: Inherit via internal rule
+  KtOutMin = []
+  KtOutMax = []
+  IntegratorOutDataTypeStr = Inherit: Inherit via internal rule
+  IntegratorOutMin = []
+  IntegratorOutMax = []
+  FilterOutDataTypeStr = Inherit: Inherit via internal rule
+  FilterOutMin = []
+  FilterOutMax = []
+  SumI1OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI1OutMin = []
+  SumI1OutMax = []
+  SumI2OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI2OutMin = []
+  SumI2OutMax = []
+  SumI3OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI3OutMin = []
+  SumI3OutMax = []
+  SumI4OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI4OutMin = []
+  SumI4OutMax = []
+  SumDOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDOutMin = []
+  SumDOutMax = []
+  SumAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI1AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI2AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI3AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI4AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumDAccumDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutMin = []
+  DifferentiatorOutMax = []
+  FilterDiffNumProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefMin = []
+  FilterDiffOutCoefMax = []
+  ReciprocalOutDataTypeStr = Inherit: Inherit via internal rule
+  ReciprocalOutMin = []
+  ReciprocalOutMax = []
+  SumDenOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDenOutMin = []
+  SumDenOutMax = []
+  SumNumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumNumOutMin = []
+  SumNumOutMax = []
+  SumDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutMin = []
+  DivideOutMax = []
+  UdiffTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UdiffTsProdOutMin = []
+  UdiffTsProdOutMax = []
+  NTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NTsProdOutMin = []
+  NTsProdOutMax = []
+  UintegralTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UintegralTsProdOutMin = []
+  UintegralTsProdOutMax = []
+  UngainTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UngainTsProdOutMin = []
+  UngainTsProdOutMax = []
+  ClampingZeroOutDataTypeStr = Inherit: Inherit via back propagation
+  ClampingZeroOutMin = []
+  ClampingZeroOutMax = []
+  FilterDenConstantOutDataTypeStr = Inherit: Inherit via back propagation
+  FilterDenConstantOutMin = []
+  FilterDenConstantOutMax = []
+  PCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  PCopyOutMin = []
+  PCopyOutMax = []
+  NCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  NCopyOutMin = []
+  NCopyOutMax = []
+  IntegratorContinuousStateAttributes = ''
+  IntegratorStateIdentifier = 
+  IntegratorStateMustResolveToSignalObject = off
+  FilterContinuousStateAttributes = ''
+  FilterStateIdentifier = 
+  FilterStateMustResolveToSignalObject = off
+  port 1 ->  |  grid_inv_test_battery/Sum_id
+  port 1 ->  |  grid_inv_test_battery/Sum_vd
+
+[grid_inv_test_battery/PI_dc]
+  BlockType = SubSystem | MaskType = PID 1dof | Library = slpidlib/PID Controller
+  Controller = PI
+  Form = Parallel
+  TimeDomain = Discrete-time
+  UseExternalTs = off
+  SampleTime = 1e-4
+  IntegratorMethod = Forward Euler
+  FilterMethod = Forward Euler
+  ControllerParametersSource = internal
+  P = 0.3
+  I = 10
+  UseKiTs = off
+  D = 0
+  N = 100
+  UseFilter = on
+  TunerSelectOption = Transfer Function Based (PID Tuner App)
+  ZeroCross = on
+  InitialConditionSource = internal
+  InitialConditionForIntegrator = 10
+  InitialConditionForFilter = 0
+  DifferentiatorICPrevScaledInput = 0
+  ExternalReset = none
+  IgnoreLimit = off
+  TrackingMode = off
+  Kt = 1
+  LimitOutput = on
+  SatLimitsSource = internal
+  UpperSaturationLimit = 20
+  LowerSaturationLimit = -20
+  LinearizeAsGain = on
+  AntiWindupMode = clamping
+  Kb = 1
+  LimitIntegrator = off
+  UpperIntegratorSaturationLimit = inf
+  LowerIntegratorSaturationLimit = -inf
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  LockScale = off
+  PGainOutDataTypeStr = Inherit: Inherit via internal rule
+  PProdOutDataTypeStr = Inherit: Inherit via internal rule
+  POutMin = []
+  POutMax = []
+  IGainOutDataTypeStr = Inherit: Inherit via internal rule
+  IProdOutDataTypeStr = Inherit: Inherit via internal rule
+  IOutMin = []
+  IOutMax = []
+  DGainOutDataTypeStr = Inherit: Inherit via internal rule
+  DProdOutDataTypeStr = Inherit: Inherit via internal rule
+  DOutMin = []
+  DOutMax = []
+  NGainOutDataTypeStr = Inherit: Inherit via internal rule
+  NProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NOutMin = []
+  NOutMax = []
+  SumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumOutMin = []
+  SumOutMax = []
+  SaturationOutDataTypeStr = Inherit: Same as input
+  SaturationOutMin = []
+  SaturationOutMax = []
+  PParamDataTypeStr = Inherit: Inherit via internal rule
+  PParamMin = []
+  PParamMax = []
+  IParamDataTypeStr = Inherit: Inherit via internal rule
+  IParamMin = []
+  IParamMax = []
+  DParamDataTypeStr = Inherit: Inherit via internal rule
+  DParamMin = []
+  DParamMax = []
+  NParamDataTypeStr = Inherit: Inherit via internal rule
+  NParamMin = []
+  NParamMax = []
+  KbParamDataTypeStr = Inherit: Inherit via internal rule
+  KbParamMin = []
+  KbParamMax = []
+  KtParamDataTypeStr = Inherit: Inherit via internal rule
+  KtParamMin = []
+  KtParamMax = []
+  KbOutDataTypeStr = Inherit: Inherit via internal rule
+  KbOutMin = []
+  KbOutMax = []
+  KtOutDataTypeStr = Inherit: Inherit via internal rule
+  KtOutMin = []
+  KtOutMax = []
+  IntegratorOutDataTypeStr = Inherit: Inherit via internal rule
+  IntegratorOutMin = []
+  IntegratorOutMax = []
+  FilterOutDataTypeStr = Inherit: Inherit via internal rule
+  FilterOutMin = []
+  FilterOutMax = []
+  SumI1OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI1OutMin = []
+  SumI1OutMax = []
+  SumI2OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI2OutMin = []
+  SumI2OutMax = []
+  SumI3OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI3OutMin = []
+  SumI3OutMax = []
+  SumI4OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI4OutMin = []
+  SumI4OutMax = []
+  SumDOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDOutMin = []
+  SumDOutMax = []
+  SumAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI1AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI2AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI3AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI4AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumDAccumDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutMin = []
+  DifferentiatorOutMax = []
+  FilterDiffNumProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefMin = []
+  FilterDiffOutCoefMax = []
+  ReciprocalOutDataTypeStr = Inherit: Inherit via internal rule
+  ReciprocalOutMin = []
+  ReciprocalOutMax = []
+  SumDenOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDenOutMin = []
+  SumDenOutMax = []
+  SumNumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumNumOutMin = []
+  SumNumOutMax = []
+  SumDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutMin = []
+  DivideOutMax = []
+  UdiffTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UdiffTsProdOutMin = []
+  UdiffTsProdOutMax = []
+  NTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NTsProdOutMin = []
+  NTsProdOutMax = []
+  UintegralTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UintegralTsProdOutMin = []
+  UintegralTsProdOutMax = []
+  UngainTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UngainTsProdOutMin = []
+  UngainTsProdOutMax = []
+  ClampingZeroOutDataTypeStr = Inherit: Inherit via back propagation
+  ClampingZeroOutMin = []
+  ClampingZeroOutMax = []
+  FilterDenConstantOutDataTypeStr = Inherit: Inherit via back propagation
+  FilterDenConstantOutMin = []
+  FilterDenConstantOutMax = []
+  PCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  PCopyOutMin = []
+  PCopyOutMax = []
+  NCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  NCopyOutMin = []
+  NCopyOutMax = []
+  IntegratorContinuousStateAttributes = ''
+  IntegratorStateIdentifier = 
+  IntegratorStateMustResolveToSignalObject = off
+  FilterContinuousStateAttributes = ''
+  FilterStateIdentifier = 
+  FilterStateMustResolveToSignalObject = off
+  port 1 ->  |  grid_inv_test_battery/Sum_vdc
+  port 1 ->  |  grid_inv_test_battery/idref_ws  |  grid_inv_test_battery/Sum_id
+
+[grid_inv_test_battery/PI_q]
+  BlockType = SubSystem | MaskType = PID 1dof | Library = slpidlib/PID Controller
+  Controller = PI
+  Form = Parallel
+  TimeDomain = Discrete-time
+  UseExternalTs = off
+  SampleTime = 5e-6
+  IntegratorMethod = Forward Euler
+  FilterMethod = Forward Euler
+  ControllerParametersSource = internal
+  P = 10
+  I = 111
+  UseKiTs = off
+  D = 0
+  N = 100
+  UseFilter = on
+  TunerSelectOption = Transfer Function Based (PID Tuner App)
+  ZeroCross = on
+  InitialConditionSource = internal
+  InitialConditionForIntegrator = 0
+  InitialConditionForFilter = 0
+  DifferentiatorICPrevScaledInput = 0
+  ExternalReset = none
+  IgnoreLimit = off
+  TrackingMode = off
+  Kt = 1
+  LimitOutput = on
+  SatLimitsSource = internal
+  UpperSaturationLimit = +350
+  LowerSaturationLimit = -350
+  LinearizeAsGain = on
+  AntiWindupMode = clamping
+  Kb = 1
+  LimitIntegrator = off
+  UpperIntegratorSaturationLimit = inf
+  LowerIntegratorSaturationLimit = -inf
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  LockScale = off
+  PGainOutDataTypeStr = Inherit: Inherit via internal rule
+  PProdOutDataTypeStr = Inherit: Inherit via internal rule
+  POutMin = []
+  POutMax = []
+  IGainOutDataTypeStr = Inherit: Inherit via internal rule
+  IProdOutDataTypeStr = Inherit: Inherit via internal rule
+  IOutMin = []
+  IOutMax = []
+  DGainOutDataTypeStr = Inherit: Inherit via internal rule
+  DProdOutDataTypeStr = Inherit: Inherit via internal rule
+  DOutMin = []
+  DOutMax = []
+  NGainOutDataTypeStr = Inherit: Inherit via internal rule
+  NProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NOutMin = []
+  NOutMax = []
+  SumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumOutMin = []
+  SumOutMax = []
+  SaturationOutDataTypeStr = Inherit: Same as input
+  SaturationOutMin = []
+  SaturationOutMax = []
+  PParamDataTypeStr = Inherit: Inherit via internal rule
+  PParamMin = []
+  PParamMax = []
+  IParamDataTypeStr = Inherit: Inherit via internal rule
+  IParamMin = []
+  IParamMax = []
+  DParamDataTypeStr = Inherit: Inherit via internal rule
+  DParamMin = []
+  DParamMax = []
+  NParamDataTypeStr = Inherit: Inherit via internal rule
+  NParamMin = []
+  NParamMax = []
+  KbParamDataTypeStr = Inherit: Inherit via internal rule
+  KbParamMin = []
+  KbParamMax = []
+  KtParamDataTypeStr = Inherit: Inherit via internal rule
+  KtParamMin = []
+  KtParamMax = []
+  KbOutDataTypeStr = Inherit: Inherit via internal rule
+  KbOutMin = []
+  KbOutMax = []
+  KtOutDataTypeStr = Inherit: Inherit via internal rule
+  KtOutMin = []
+  KtOutMax = []
+  IntegratorOutDataTypeStr = Inherit: Inherit via internal rule
+  IntegratorOutMin = []
+  IntegratorOutMax = []
+  FilterOutDataTypeStr = Inherit: Inherit via internal rule
+  FilterOutMin = []
+  FilterOutMax = []
+  SumI1OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI1OutMin = []
+  SumI1OutMax = []
+  SumI2OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI2OutMin = []
+  SumI2OutMax = []
+  SumI3OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI3OutMin = []
+  SumI3OutMax = []
+  SumI4OutDataTypeStr = Inherit: Inherit via internal rule
+  SumI4OutMin = []
+  SumI4OutMax = []
+  SumDOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDOutMin = []
+  SumDOutMax = []
+  SumAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI1AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI2AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI3AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumI4AccumDataTypeStr = Inherit: Inherit via internal rule
+  SumDAccumDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutDataTypeStr = Inherit: Inherit via internal rule
+  DifferentiatorOutMin = []
+  DifferentiatorOutMax = []
+  FilterDiffNumProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenProductOutputDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefDataTypeStr = Inherit: Inherit via internal rule
+  FilterDiffOutCoefMin = []
+  FilterDiffOutCoefMax = []
+  ReciprocalOutDataTypeStr = Inherit: Inherit via internal rule
+  ReciprocalOutMin = []
+  ReciprocalOutMax = []
+  SumDenOutDataTypeStr = Inherit: Inherit via internal rule
+  SumDenOutMin = []
+  SumDenOutMax = []
+  SumNumOutDataTypeStr = Inherit: Inherit via internal rule
+  SumNumOutMin = []
+  SumNumOutMax = []
+  SumDenAccumDataTypeStr = Inherit: Inherit via internal rule
+  SumNumAccumDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutDataTypeStr = Inherit: Inherit via internal rule
+  DivideOutMin = []
+  DivideOutMax = []
+  UdiffTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UdiffTsProdOutMin = []
+  UdiffTsProdOutMax = []
+  NTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  NTsProdOutMin = []
+  NTsProdOutMax = []
+  UintegralTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UintegralTsProdOutMin = []
+  UintegralTsProdOutMax = []
+  UngainTsProdOutDataTypeStr = Inherit: Inherit via internal rule
+  UngainTsProdOutMin = []
+  UngainTsProdOutMax = []
+  ClampingZeroOutDataTypeStr = Inherit: Inherit via back propagation
+  ClampingZeroOutMin = []
+  ClampingZeroOutMax = []
+  FilterDenConstantOutDataTypeStr = Inherit: Inherit via back propagation
+  FilterDenConstantOutMin = []
+  FilterDenConstantOutMax = []
+  PCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  PCopyOutMin = []
+  PCopyOutMax = []
+  NCopyOutDataTypeStr = Inherit: Inherit via back propagation
+  NCopyOutMin = []
+  NCopyOutMax = []
+  IntegratorContinuousStateAttributes = ''
+  IntegratorStateIdentifier = 
+  IntegratorStateMustResolveToSignalObject = off
+  FilterContinuousStateAttributes = ''
+  FilterStateIdentifier = 
+  FilterStateMustResolveToSignalObject = off
+  port 1 ->  |  grid_inv_test_battery/Sum_iq
+  port 1 ->  |  grid_inv_test_battery/Sum_vq
+
+[grid_inv_test_battery/PLL]
+  BlockType = SubSystem | MaskType = PLL (3ph) | Library = spsPLL3phLib/PLL (3ph)
+  Fmin = 45
+  Par_Init = [0, 50]
+  ParK = [180, 3200, 1]
+  TcD = 1e-4
+  MaxRateChangeFreq = 12
+  FilterCutOffFreq = 25
+  Ts = 50e-6
+  AGC = on
+  port 1 ->  |  grid_inv_test_battery/G_pll
+  port 1 ->  |  grid_inv_test_battery/To Workspace2
+  port 2 ->  |  grid_inv_test_battery/dq2abc  |  grid_inv_test_battery/T_cur  |  grid_inv_test_battery/T_volt  |  grid_inv_test_battery/To Workspace1
+
+[grid_inv_test_battery/PV-615W (8x2)]
+  BlockType = SubSystem | MaskType = PV array | Library = spsPVArrayLib/PV Array
+  Npar = 2
+  Nser = 4
+  PlotType = array @ 1000 W/m2 & specified temperatures
+  S_vec = [ 1000  500  100 ]
+  Temp_C_vec = [ 45 25  ]
+  ModuleName = User-defined
+  PlotWhenSelected = off
+  Pm = 615.0834
+  Ncell = 156
+  Voc = 56.25
+  Isc = 13.8
+  Vm = 46.81
+  Im = 13.14
+  beta_Voc_pc = -0.25 
+  alpha_Isc_pc = 0.045
+  beta_Voc = -0.14062
+  alpha_Isc = 0.00621
+  IL = 13.8306
+  I0 = 4.8519e-12
+  nI = 0.48952
+  Rsh = 482.6219
+  Rs = 0.24814
+  RobustModel = on
+  RobustCellTemperature = 25
+  BAL = on
+  Tc = 1e-7
+  Tfilter = 1e-7
+  port 1 ->  |  grid_inv_test_battery/Irradiance (1000)
+  port 1 ->
+  port RConn1 ->  |  grid_inv_test_battery/BD_A  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/BD_B
+  port RConn2 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/PV_B]
+  BlockType = SubSystem | MaskType = PV array | Library = spsPVArrayLib/PV Array
+  Npar = 2
+  Nser = 4
+  PlotType = array @ 1000 W/m2 & specified temperatures
+  S_vec = [ 1000  500  100 ]
+  Temp_C_vec = [ 45 25  ]
+  ModuleName = User-defined
+  PlotWhenSelected = off
+  Pm = 615.0834
+  Ncell = 156
+  Voc = 56.25
+  Isc = 13.8
+  Vm = 46.81
+  Im = 13.14
+  beta_Voc_pc = -0.25 
+  alpha_Isc_pc = 0.045
+  beta_Voc = -0.14062
+  alpha_Isc = 0.00621
+  IL = 13.8306
+  I0 = 4.8519e-12
+  nI = 0.48952
+  Rsh = 482.6219
+  Rs = 0.24814
+  RobustModel = on
+  RobustCellTemperature = 25
+  BAL = on
+  Tc = 1e-7
+  Tfilter = 1e-7
+  port 1 ->  |  grid_inv_test_battery/Mul_B
+  port 1 ->
+  port RConn1 ->  |  grid_inv_test_battery/Ammeter  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/BD_B
+  port RConn2 ->  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A  |  grid_inv_test_battery/BD_B
+
+[grid_inv_test_battery/PWM]
+  BlockType = SubSystem | MaskType = PWM Generator (2-Level) | Library = spsPWMGenerator2LevelLib/PWM Generator (2-Level)
+  ModulatorType = Three-phase bridge (6 pulses)
+  ModulatorMode = Unsynchronized
+  Fc = 5000
+  Pc = 0
+  nF = 27
+  MinMax = [ -1  1 ]
+  SamplingTechnique = Natural
+  ModulatingSignals = off
+  m = 0.95
+  Freq = 50
+  Phase = 0
+  Ts = 0
+  ShowCarrierOutport = off
+  port 1 ->  |  grid_inv_test_battery/Saturation
+  port 1 ->  |  grid_inv_test_battery/Bridge
+
+[grid_inv_test_battery/PWM Generator]
+  BlockType = SubSystem | MaskType = PWM Generator | Library = eePwmGenerator/PWM Generator
+  CarrCount = Up
+  Tper =  0.0002
+  Tdelay = 0
+  Ts = 5e-6
+  port 1 ->  |  grid_inv_test_battery/MPPT Function
+  port 1 ->  |  grid_inv_test_battery/IGBT
+
+[grid_inv_test_battery/PWM Generator (2-Level)]
+  BlockType = SubSystem | MaskType = PWM Generator (2-Level) | Library = spsPWMGenerator2LevelLib/PWM Generator (2-Level)
+  ModulatorType = Single-phase half-bridge (2 pulses)
+  ModulatorMode = Unsynchronized
+  Fc = 5000
+  Pc = 90
+  nF = 27
+  MinMax = [ -1  1 ]
+  SamplingTechnique = Natural
+  ModulatingSignals = off
+  m = 0.8
+  Freq = 60
+  Phase = 0
+  Ts = 5e-6
+  ShowCarrierOutport = off
+  port 1 ->  |  grid_inv_test_battery/Bias
+  port 1 ->  |  grid_inv_test_battery/HB
+
+[grid_inv_test_battery/Rbat]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = R
+  Resistance = 0.1
+  Inductance = 1e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 1e-6
+  Setx0 = off
+  InitialVoltage = 0
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/V_bat
+  port RConn1 ->  |  grid_inv_test_battery/i_bat
+
+[grid_inv_test_battery/Saturation]
+  BlockType = Saturate | MaskType =  | Library = 
+  UpperLimit = 1
+  LowerLimit = -1
+  LinearizeAsGain = on
+  ZeroCross = on
+  SampleTime = -1
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Same as input
+  LockScale = off
+  RndMeth = Floor
+  port 1 ->  |  grid_inv_test_battery/G_norm
+  port 1 ->  |  grid_inv_test_battery/PWM
+
+[grid_inv_test_battery/Saturation1]
+  BlockType = Saturate | MaskType =  | Library = 
+  UpperLimit = 0.95
+  LowerLimit = 0.05
+  LinearizeAsGain = on
+  ZeroCross = on
+  SampleTime = -1
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Same as input
+  LockScale = off
+  RndMeth = Floor
+  port 1 ->  |  grid_inv_test_battery/Divide
+  port 1 ->  |  grid_inv_test_battery/Scope  |  grid_inv_test_battery/Gain1
+
+[grid_inv_test_battery/Saturation2]
+  BlockType = Saturate | MaskType =  | Library = 
+  UpperLimit = 0.5
+  LowerLimit = -0.5
+  LinearizeAsGain = on
+  ZeroCross = on
+  SampleTime = -1
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Same as input
+  LockScale = off
+  RndMeth = Floor
+  port 1 ->  |  grid_inv_test_battery/V_dc
+  port 1 ->  |  grid_inv_test_battery/Divide
+
+[grid_inv_test_battery/Scope]
+  BlockType = Scope | MaskType =  | Library = 
+  OpenAtSimulationStart = off
+  DisplayFullPath = off
+  NumInputPorts = 5
+  LayoutDimensionsString = [1 1]
+  SampleTime = -1
+  FrameBasedProcessingString = Elements as channels (sample based)
+  MaximizeAxes = Off
+  AxesScaling = Manual
+  AxesScalingNumUpdates = 10
+  TimeSpan = Auto
+  TimeSpanOverrunAction = Wrap
+  TimeUnits = None
+  TimeDisplayOffset = 0
+  TimeAxisLabels = Bottom displays only
+  ShowTimeAxisLabel = off
+  ActiveDisplayString = 1
+  Title = %<SignalLabel>
+  ShowLegend = off
+  ShowGrid = on
+  PlotAsMagnitudePhase = off
+  ActiveDisplayYMinimum = -183.7317
+  ActiveDisplayYMaximum = 824.2768
+  YLabel = 
+  DataLoggingLimitDataPoints = off
+  DataLoggingMaxPoints = 5000
+  DataLoggingDecimateData = off
+  DataLoggingDecimation = 2
+  DataLogging = off
+  DataLoggingVariableName = ScopeData
+  DataLoggingSaveFormat = Dataset
+  port 1 ->  |  grid_inv_test_battery/i_bat
+  port 2 ->  |  grid_inv_test_battery/V_dc
+  port 3 ->  |  grid_inv_test_battery/Gain
+  port 4 ->  |  grid_inv_test_battery/PI
+  port 5 ->  |  grid_inv_test_battery/Saturation1
+
+[grid_inv_test_battery/Series RLC Branch]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = RL
+  Resistance = 0.05
+  Inductance = 4.5e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 1e-6
+  Setx0 = off
+  InitialVoltage = 0
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Bridge
+  port RConn1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement
+
+[grid_inv_test_battery/Series RLC Branch1]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = RL
+  Resistance = 0.05
+  Inductance = 4.5e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 1e-6
+  Setx0 = off
+  InitialVoltage = 0
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Bridge
+  port RConn1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement
+
+[grid_inv_test_battery/Series RLC Branch2]
+  BlockType = PMComponent | MaskType = Series RLC Branch | Library = spsSeriesRLCBranchLib/Series RLC Branch
+  BranchType = RL
+  Resistance = 0.05
+  Inductance = 4.5e-3
+  SetiL0 = off
+  InitialCurrent = 0
+  Capacitance = 1e-6
+  Setx0 = off
+  InitialVoltage = 0
+  Measurements = None
+  port LConn1 ->  |  grid_inv_test_battery/Bridge
+  port RConn1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement
+
+[grid_inv_test_battery/Shade_factor]
+  BlockType = Step | MaskType =  | Library = 
+  Time = 0.1
+  Before = 1
+  After = 1
+  OutDataTypeStr = double
+  SampleTime = 0
+  VectorParams1D = on
+  ZeroCross = on
+  port 1 ->  |  grid_inv_test_battery/Mul_B
+
+[grid_inv_test_battery/Sum]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = |++
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/P1
+  port 2 ->  |  grid_inv_test_battery/P2
+  port 1 ->  |  grid_inv_test_battery/Gain_ff  |  grid_inv_test_battery/Gain
+
+[grid_inv_test_battery/Sum_id]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = +-+
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/PI_dc
+  port 2 ->  |  grid_inv_test_battery/Demux_i
+  port 3 ->  |  grid_inv_test_battery/Gain_ff
+  port 1 ->  |  grid_inv_test_battery/PI_d
+
+[grid_inv_test_battery/Sum_iq]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = +-
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/iq_ref
+  port 2 ->  |  grid_inv_test_battery/Demux_i
+  port 1 ->  |  grid_inv_test_battery/PI_q
+
+[grid_inv_test_battery/Sum_vd]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = ++-
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Demux_v
+  port 2 ->  |  grid_inv_test_battery/PI_d
+  port 3 ->  |  grid_inv_test_battery/wL_iq
+  port 1 ->  |  grid_inv_test_battery/Mux
+
+[grid_inv_test_battery/Sum_vdc]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = +-
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Vdc_meas
+  port 2 ->  |  grid_inv_test_battery/Vdc_ref
+  port 1 ->  |  grid_inv_test_battery/PI_dc
+
+[grid_inv_test_battery/Sum_vq]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = +++
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Demux_v
+  port 2 ->  |  grid_inv_test_battery/PI_q
+  port 3 ->  |  grid_inv_test_battery/wL_id
+  port 1 ->  |  grid_inv_test_battery/Mux
+
+[grid_inv_test_battery/T_cur]
+  BlockType = SubSystem | MaskType = abc to dq0 Transformation | Library = spsabctodq0Lib/abc to dq0
+  Alignment = 90 degrees behind phase A axis
+  port 1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement
+  port 2 ->  |  grid_inv_test_battery/PLL
+  port 1 ->  |  grid_inv_test_battery/Ineg  |  grid_inv_test_battery/To Workspace3
+
+[grid_inv_test_battery/T_volt]
+  BlockType = SubSystem | MaskType = abc to dq0 Transformation | Library = spsabctodq0Lib/abc to dq0
+  Alignment = 90 degrees behind phase A axis
+  port 1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement
+  port 2 ->  |  grid_inv_test_battery/PLL
+  port 1 ->  |  grid_inv_test_battery/Demux_v  |  grid_inv_test_battery/To Workspace4
+
+[grid_inv_test_battery/Term_i]
+  BlockType = Terminator | MaskType =  | Library = 
+  port 1 ->  |  grid_inv_test_battery/Demux_i
+
+[grid_inv_test_battery/Term_v]
+  BlockType = Terminator | MaskType =  | Library = 
+  port 1 ->  |  grid_inv_test_battery/Demux_v
+
+[grid_inv_test_battery/Three-Phase Source]
+  BlockType = SubSystem | MaskType = Three-Phase Source | Library = spsThreePhaseSourceLib/Three-Phase Source
+  InternalConnection = Yg
+  VoltagePhases = off
+  Voltage = 400
+  PhaseAngle = 0
+  Voltage_phases = [25e3 25e3 25e3]/sqrt(3)
+  PhaseAngles_phases = [0 -120 +120]
+  Frequency = 50
+  NonIdealSource = on
+  SpecifyImpedance = off
+  Resistance = 0.01
+  Inductance = 1e-4
+  ShortCircuitLevel = 100e6
+  BaseVoltage = 400
+  XRratio = 7
+  BusType = swing
+  Pref = 10e3
+  Qref = 0
+  Prefabc = [10e3, 10e3, 10e3]
+  Qrefabc = [0, 0, 0]
+  Qmin = -inf
+  Qmax = inf
+  port RConn1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement  |  grid_inv_test_battery/Fault_PCC
+  port RConn2 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement  |  grid_inv_test_battery/Fault_PCC
+  port RConn3 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement  |  grid_inv_test_battery/Fault_PCC
+
+[grid_inv_test_battery/Three-Phase V-I Measurement]
+  BlockType = SubSystem | MaskType = Three-Phase VI Measurement | Library = spsThreePhaseVIMeasurementLib/Three-Phase V-I Measurement
+  VoltageMeasurement = phase-to-ground
+  SetLabelV = off
+  LabelV = Vabc
+  Vpu = off
+  VpuLL = off
+  CurrentMeasurement = yes
+  SetLabelI = off
+  LabelI = Iabc
+  Ipu = off
+  Pbase = 100e6
+  Vbase = 500e3
+  OutputType = Complex
+  PhasorSimulation = off
+  PSBequivalent = 0
+  port 1 ->  |  grid_inv_test_battery/G_pll  |  grid_inv_test_battery/T_volt
+  port 2 ->  |  grid_inv_test_battery/To Workspace  |  grid_inv_test_battery/T_cur
+  port LConn1 ->  |  grid_inv_test_battery/Three-Phase Source  |  grid_inv_test_battery/Fault_PCC
+  port LConn2 ->  |  grid_inv_test_battery/Three-Phase Source  |  grid_inv_test_battery/Fault_PCC
+  port LConn3 ->  |  grid_inv_test_battery/Three-Phase Source  |  grid_inv_test_battery/Fault_PCC
+  port RConn1 ->  |  grid_inv_test_battery/Series RLC Branch2
+  port RConn2 ->  |  grid_inv_test_battery/Series RLC Branch
+  port RConn3 ->  |  grid_inv_test_battery/Series RLC Branch1
+
+[grid_inv_test_battery/To Workspace]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = i_abc
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Timeseries
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Three-Phase V-I Measurement
+
+[grid_inv_test_battery/To Workspace1]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = pll_wt
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Timeseries
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/PLL
+
+[grid_inv_test_battery/To Workspace2]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = pll_f
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Timeseries
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/PLL
+
+[grid_inv_test_battery/To Workspace3]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = idq
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Timeseries
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/T_cur
+
+[grid_inv_test_battery/To Workspace4]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = vdq
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Timeseries
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/T_volt
+
+[grid_inv_test_battery/V_bat]
+  BlockType = SubSystem | MaskType = Voltage Measurement | Library = spsVoltageMeasurementLib/Voltage Measurement
+  PhasorSimulation = off
+  OutputType = Complex
+  PSBequivalent = 0
+  port 1 ->  |  grid_inv_test_battery/Vsum
+  port LConn1 ->  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/Rbat
+  port LConn2 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/V_dc]
+  BlockType = SubSystem | MaskType = Voltage Measurement | Library = spsVoltageMeasurementLib/Voltage Measurement
+  PhasorSimulation = off
+  OutputType = Complex
+  PSBequivalent = 0
+  port 1 ->  |  grid_inv_test_battery/Scope  |  grid_inv_test_battery/vdc  |  grid_inv_test_battery/Saturation2
+  port LConn1 ->  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/Diode  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Vdc_meas
+  port LConn2 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/Vdc_meas]
+  BlockType = SubSystem | MaskType = Voltage Measurement | Library = spsVoltageMeasurementLib/Voltage Measurement
+  PhasorSimulation = off
+  OutputType = Complex
+  PSBequivalent = 0
+  port 1 ->  |  grid_inv_test_battery/MPPT Function  |  grid_inv_test_battery/Sum_vdc  |  grid_inv_test_battery/vdc_ws
+  port LConn1 ->  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/Diode  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/V_dc
+  port LConn2 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Voltmeter  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/Vdc_ref]
+  BlockType = Constant | MaskType =  | Library = 
+  Value = 700
+  VectorParams1D = on
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit from 'Constant value'
+  LockScale = off
+  SampleTime = inf
+  FramePeriod = inf
+  port 1 ->  |  grid_inv_test_battery/Sum_vdc
+
+[grid_inv_test_battery/Voltmeter]
+  BlockType = SubSystem | MaskType = Voltage Measurement | Library = spsVoltageMeasurementLib/Voltage Measurement
+  PhasorSimulation = off
+  OutputType = Complex
+  PSBequivalent = 0
+  port 1 ->  |  grid_inv_test_battery/P=VxI  |  grid_inv_test_battery/MPPT Function  |  grid_inv_test_battery/vpv_ws
+  port LConn1 ->  |  grid_inv_test_battery/Ammeter  |  grid_inv_test_battery/PV_B  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/BD_B
+  port LConn2 ->  |  grid_inv_test_battery/IGBT  |  grid_inv_test_battery/Cin  |  grid_inv_test_battery/V_dc  |  grid_inv_test_battery/V_bat  |  grid_inv_test_battery/Battery  |  grid_inv_test_battery/HB  |  grid_inv_test_battery/Cdc  |  grid_inv_test_battery/Vdc_meas  |  grid_inv_test_battery/Bridge  |  grid_inv_test_battery/PV-615W (8x2)  |  grid_inv_test_battery/BD_A
+
+[grid_inv_test_battery/Vsum]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = |+-
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/V_bat
+  port 2 ->  |  grid_inv_test_battery/PI
+  port 1 ->  |  grid_inv_test_battery/Divide
+
+[grid_inv_test_battery/Zero]
+  BlockType = Constant | MaskType =  | Library = 
+  Value = 0
+  VectorParams1D = on
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit from 'Constant value'
+  LockScale = off
+  SampleTime = inf
+  FramePeriod = inf
+  port 1 ->  |  grid_inv_test_battery/Mux
+
+[grid_inv_test_battery/dq2abc]
+  BlockType = SubSystem | MaskType = dq0 to abc Transformation | Library = spsdq0toabcLib/dq0 to abc
+  Alignment = 90 degrees behind phase A axis
+  port 1 ->  |  grid_inv_test_battery/Mux
+  port 2 ->  |  grid_inv_test_battery/PLL
+  port 1 ->  |  grid_inv_test_battery/G_norm
+
+[grid_inv_test_battery/duty_ws]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = duty
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Structure With Time
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = 5e-6
+  port 1 ->  |  grid_inv_test_battery/MPPT Function
+
+[grid_inv_test_battery/err]
+  BlockType = Sum | MaskType =  | Library = 
+  IconShape = round
+  Inputs = |+-
+  CollapseMode = All dimensions
+  CollapseDim = 1
+  InputSameDT = off
+  AccumDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Gain
+  port 2 ->  |  grid_inv_test_battery/i_bat
+  port 1 ->  |  grid_inv_test_battery/PI
+
+[grid_inv_test_battery/i_bat]
+  BlockType = SubSystem | MaskType = Current Measurement | Library = spsCurrentMeasurementLib/Current Measurement
+  PhasorSimulation = off
+  OutputType = Complex
+  PSBequivalent = 0
+  port 1 ->  |  grid_inv_test_battery/err  |  grid_inv_test_battery/Scope  |  grid_inv_test_battery/ibat
+  port LConn1 ->  |  grid_inv_test_battery/Rbat
+  port RConn1 ->  |  grid_inv_test_battery/Lb
+
+[grid_inv_test_battery/ibat]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = ibat
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Structure With Time
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/i_bat
+
+[grid_inv_test_battery/id_ref]
+  BlockType = Constant | MaskType =  | Library = 
+  Value = 10
+  VectorParams1D = on
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit from 'Constant value'
+  LockScale = off
+  SampleTime = inf
+  FramePeriod = inf
+  port 1 ->
+
+[grid_inv_test_battery/idio_ws]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = idio
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Structure With Time
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = 5e-6
+  port 1 ->  |  grid_inv_test_battery/Diode
+
+[grid_inv_test_battery/idref_ws]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = idref
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Array
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/PI_dc
+
+[grid_inv_test_battery/ipv_ws]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = ipv
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Structure With Time
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = 5e-6
+  port 1 ->  |  grid_inv_test_battery/Ammeter
+
+[grid_inv_test_battery/iq_ref]
+  BlockType = Constant | MaskType =  | Library = 
+  Value = 0
+  VectorParams1D = on
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit from 'Constant value'
+  LockScale = off
+  SampleTime = inf
+  FramePeriod = inf
+  port 1 ->  |  grid_inv_test_battery/Sum_iq
+
+[grid_inv_test_battery/powergui]
+  BlockType = SubSystem | MaskType = PSB option menu block | Library = spspowerguiLib/powergui
+  SimulationMode = Discrete
+  SampleTime = 5e-6
+  frequency = 60
+  Iterations = 50
+  frequencyindice = 50
+  Pbase = 100e6
+  ErrMax = 1e-4
+  UnitsV = kV
+  UnitsW = MW
+  buscounter = 0
+  FunctionMessages = off
+  echomessages = off
+  EnableUseOfTLC = off
+  CurrentSourceSwitches = off
+  DisableSnubberDevices = off
+  DisableRonSwitches = off
+  DisableVfSwitches = off
+  DisplayEquations = off
+  AutomaticDiscreteSolvers = off
+  SolverType = Tustin/Backward Euler (TBE)
+  Interpol = off
+  ExternalGateDelay = off
+  methode = off
+  Ts = 100
+  x0status = blocks
+  SPID = on
+  SwTol = 0
+  HookPort = off
+  NonlinearTolerance = 1e-4
+  nMaxIteration = 100
+  ContinueOnMaxIteration = off
+  RestoreLinks = warning
+  ResistiveCurrentMeasurement = off
+  Frange = [0:2:500]
+  Ylog = off
+  Xlog = on
+  ShowGrid = off
+  save = off
+  variable = ZData
+  structure = 0
+  ZoomFFT = off
+  StartTime = 0.0
+  cycles = 1
+  DisplayStyle = 1
+  fundamental = 60
+  FreqAxis = off
+  MaxFrequency = 1000
+  frequencyindicesteady = 1
+  RmsSteady = 1
+  display = off
+
+[grid_inv_test_battery/ppv_ws]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = ppv
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Structure With Time
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = 5e-6
+  port 1 ->  |  grid_inv_test_battery/P=VxI
+
+[grid_inv_test_battery/vdc]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = vdc_bat
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Structure With Time
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/V_dc
+
+[grid_inv_test_battery/vdc_ws]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = vdc
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Array
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = 5e-6
+  port 1 ->  |  grid_inv_test_battery/Vdc_meas
+
+[grid_inv_test_battery/vpv_ws]
+  BlockType = ToWorkspace | MaskType =  | Library = 
+  VariableName = vpv
+  MaxDataPoints = inf
+  Decimation = 1
+  SaveFormat = Structure With Time
+  Save2DSignal = 3-D array (concatenate along third dimension)
+  FixptAsFi = on
+  SampleTime = 5e-6
+  port 1 ->  |  grid_inv_test_battery/Voltmeter
+
+[grid_inv_test_battery/wL_id]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = 2*pi*50*4.5e-3
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Demux_i
+  port 1 ->  |  grid_inv_test_battery/Sum_vq
+
+[grid_inv_test_battery/wL_iq]
+  BlockType = Gain | MaskType =  | Library = 
+  Gain = 2*pi*50*4.5e-3
+  Multiplication = Element-wise(K.*u)
+  ParamMin = []
+  ParamMax = []
+  ParamDataTypeStr = Inherit: Inherit via internal rule
+  OutMin = []
+  OutMax = []
+  OutDataTypeStr = Inherit: Inherit via internal rule
+  LockScale = off
+  RndMeth = Floor
+  SaturateOnIntegerOverflow = off
+  SampleTime = -1
+  port 1 ->  |  grid_inv_test_battery/Demux_i
+  port 1 ->  |  grid_inv_test_battery/Sum_vd
+
+=== MATLAB FUNCTION BLOCKS (3) ===
+
+--- grid_inv_test_battery/MPPT Function (SampleTime -1) ---
+function D = mppt1(V, I, Vdc)
+persistent Dprev Pprev Vprev sV sI n
+if isempty(Dprev)
+    Dprev = 0.5; Pprev = 0; Vprev = 0; sV = 0; sI = 0; n = 0;
+end
+dD = 0.003; Nn = 2000; Vhi = 735; kv = 0.01;
+if Vdc > Vhi
+    D = max(0.05, Dprev - kv*(Vdc - Vhi)); sV = 0; sI = 0; n = 0; Pprev = V*I; Vprev = V;
+    return
+end
+sV = sV + V; sI = sI + I; n = n + 1;
+if n >= Nn
+    Vm = sV/n; Im = sI/n; P = Vm*Im;
+    if (P - Pprev) ~= 0
+        if (P - Pprev) > 0
+            if (Vm - Vprev) > 0, Dprev = Dprev - dD; else, Dprev = Dprev + dD; end
+        else
+            if (Vm - Vprev) > 0, Dprev = Dprev + dD; else, Dprev = Dprev - dD; end
+        end
+    end
+    if Dprev >= 0.9, Dprev = 0.9; elseif Dprev <= 0.1, Dprev = 0.1; end
+    Pprev = P; Vprev = Vm; sV = 0; sI = 0; n = 0;
+end
+D = Dprev;
+end
+
+=== TO WORKSPACE BLOCKS (14) ===
+grid_inv_test_battery/To Workspace | VariableName i_abc | SampleTime -1 | SaveFormat Timeseries | Decimation 1
+grid_inv_test_battery/To Workspace1 | VariableName pll_wt | SampleTime -1 | SaveFormat Timeseries | Decimation 1
+grid_inv_test_battery/To Workspace2 | VariableName pll_f | SampleTime -1 | SaveFormat Timeseries | Decimation 1
+grid_inv_test_battery/To Workspace3 | VariableName idq | SampleTime -1 | SaveFormat Timeseries | Decimation 1
+grid_inv_test_battery/To Workspace4 | VariableName vdq | SampleTime -1 | SaveFormat Timeseries | Decimation 1
+grid_inv_test_battery/duty_ws | VariableName duty | SampleTime 5e-6 | SaveFormat Structure With Time | Decimation 1
+grid_inv_test_battery/ibat | VariableName ibat | SampleTime -1 | SaveFormat Structure With Time | Decimation 1
+grid_inv_test_battery/idio_ws | VariableName idio | SampleTime 5e-6 | SaveFormat Structure With Time | Decimation 1
+grid_inv_test_battery/idref_ws | VariableName idref | SampleTime -1 | SaveFormat Array | Decimation 1
+grid_inv_test_battery/ipv_ws | VariableName ipv | SampleTime 5e-6 | SaveFormat Structure With Time | Decimation 1
+grid_inv_test_battery/ppv_ws | VariableName ppv | SampleTime 5e-6 | SaveFormat Structure With Time | Decimation 1
+grid_inv_test_battery/vdc | VariableName vdc_bat | SampleTime -1 | SaveFormat Structure With Time | Decimation 1
+grid_inv_test_battery/vdc_ws | VariableName vdc | SampleTime 5e-6 | SaveFormat Array | Decimation 1
+grid_inv_test_battery/vpv_ws | VariableName vpv | SampleTime 5e-6 | SaveFormat Structure With Time | Decimation 1
